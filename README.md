@@ -13,7 +13,7 @@ El objetivo es identificar tokens básicos del lenguaje y generar un archivo de 
 
 ---
 
-##  Estructura del repositorio
+## Estructura del repositorio
 Implementacion_Estructura_PHP/
 │
 ├── lexer.py # Archivo principal del analizador léxico
