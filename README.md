@@ -14,13 +14,14 @@ El objetivo es identificar tokens básicos del lenguaje y generar un archivo de 
 ---
 
 ## Estructura del repositorio
+```text
 Implementacion_Estructura_PHP/
 │
-├── lexer.py # Archivo principal del analizador léxico
-├── algoritmo1.php # Archivo de prueba PHP (Angie Alfonso)
-├── logs/ # Carpeta donde se generan los archivos de log
-└── README.md # Documento descriptivo del proyecto
-
+├── lexer.py              # Archivo principal del analizador léxico
+├── algoritmo1.php         # Archivo de prueba PHP (Angie Alfonso)
+├── logs/                 # Carpeta donde se generan los archivos de log
+└── README.md             # Documento descriptivo del proyecto
+```
 ---
 
 ## Dependencias
