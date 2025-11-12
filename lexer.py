@@ -39,6 +39,14 @@ tokens = [
     'NUMBER',
     'FLOAT',
     'STRING', 
+    'PLUS','MINUS','TIMES','DIVIDE','MODULO','POW',
+    'EQUALS','PLUS_EQUALS','MINUS_EQUALS','CONCAT_EQUALS',
+    'EQ','NOT_EQ','LT','GT','LTE','GTE','AND','OR','NOT',
+    'INC','DEC',
+    'ARROW','DOUBLE_COLON',
+    'LPAREN','RPAREN','LBRACE','RBRACE','LBRACKET','RBRACKET','COMA','SEMI',
+    'QMARK','COLON'
+    
 ] + list(reserved.values()) #usé list en vez de tuple porque se añadirán más tokens por los otros compañeros
 
 # Expresiones regulares simples
@@ -83,6 +91,48 @@ def t_STRING(t):
 
 # ------------------------------------------------------------
 # Integrante 2: Sergio Rodriguez - Fin
+# ------------------------------------------------------------
+
+# ------------------------------------------------------------
+# Integrante 2: Bryan Zhang - Comienzo
+# ------------------------------------------------------------
+
+t_PLUS = r'\+'
+t_MINUS = r'-'
+t_TIMES = r'\*'
+t_DIVIDE = r'/'
+t_MODULO = r'%'
+t_POW = r'\*\*'
+t_EQUALS = r'='
+t_PLUS_EQUALS = r'\+='
+t_MINUS_EQUALS = r'-='
+t_CONCAT_EQUALS = r'\.='
+t_EQ = r'=='
+t_NOT_EQ = r'!='
+t_LT = r'<'
+t_GT = r'>'
+t_LTE = r'<='
+t_GTE = r'>='
+t_AND = r'&&'
+t_OR = r'\|\|'
+t_NOT = r'!'
+t_INC = r'\+\+'
+t_DEC = r'--'
+t_ARROW = r'->'
+t_DOUBLE_COLON = r'::'
+t_LPAREN = r'\('
+t_RPAREN = r'\)'
+t_LBRACE = r'\{'
+t_RBRACE = r'\}'
+t_LBRACKET = r'\['
+t_RBRACKET = r'\]'
+t_COMA = r','
+t_SEMI = r';'
+t_QMARK = r'\?'
+t_COLON = r':'
+
+# ------------------------------------------------------------
+# Integrante 2: Bryan Zhang - Fin
 # ------------------------------------------------------------
 
 # Identificadores y palabras reservadas
@@ -145,8 +195,8 @@ def ejecutar_lexer(nombre_archivo, usuario_git):
 
 
 if __name__ == "__main__":
-    prueba = "algoritmo2.php"
-    usuario = "Cykes07"
+    prueba = "algoritmo3.php"
+    usuario = "bgzhangg"
     if not os.path.exists(prueba):
         print(f"No existe {prueba} — crea ese archivo en la misma carpeta e intenta de nuevo.")
     else:

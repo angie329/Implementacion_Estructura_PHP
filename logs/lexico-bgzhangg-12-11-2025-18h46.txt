@@ -1,0 +1,31 @@
+Analizador Léxico PHP - Usuario: bgzhangg
+Fecha y hora: 12-11-2025-18h46
+==================================================
+
+PHP_OPEN	<?php	Línea 1
+VARIABLE	$a	Línea 3
+EQUALS	=	Línea 3
+NUMBER	10	Línea 3
+SEMI	;	Línea 3
+VARIABLE	$b	Línea 4
+EQUALS	=	Línea 4
+FLOAT	20.5	Línea 4
+SEMI	;	Línea 4
+IF	if	Línea 6
+LPAREN	(	Línea 6
+VARIABLE	$a	Línea 6
+GT	>	Línea 6
+VARIABLE	$b	Línea 6
+RPAREN	)	Línea 6
+LBRACE	{	Línea 6
+ECHO	echo	Línea 7
+STRING	Hola	Línea 7
+SEMI	;	Línea 7
+RBRACE	}	Línea 8
+VARIABLE	$error	Línea 10
+EQUALS	=	Línea 10
+VARIABLE	$a	Línea 10
+PLUS	+	Línea 10
+VARIABLE	$b	Línea 10
+SEMI	;	Línea 10
+PHP_CLOSE	?>	Línea 12
