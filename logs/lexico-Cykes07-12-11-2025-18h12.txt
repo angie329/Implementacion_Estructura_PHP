@@ -1,0 +1,32 @@
+Analizador Léxico PHP - Usuario: Cykes07
+Fecha y hora: 12-11-2025-18h12
+==================================================
+
+PHP_OPEN	<?php	Línea 1
+VARIABLE	$variable1	Línea 3
+NUMBER	100	Línea 3
+VARIABLE	$variable_float	Línea 4
+FLOAT	3.1416	Línea 4
+VARIABLE	$mi_string	Línea 5
+STRING	Hola mundo!	Línea 5
+VARIABLE	$otro_string	Línea 6
+STRING	Prueba 123	Línea 6
+VARIABLE	$total	Línea 8
+VARIABLE	$variable1	Línea 8
+VARIABLE	$variable_float	Línea 8
+FUNCTION	function	Línea 11
+ID	calcularTotal	Línea 11
+VARIABLE	$num1	Línea 11
+VARIABLE	$num2	Línea 11
+VARIABLE	$resultado	Línea 12
+VARIABLE	$num1	Línea 12
+VARIABLE	$num2	Línea 12
+RETURN	return	Línea 13
+VARIABLE	$resultado	Línea 13
+VARIABLE	$valor_final	Línea 16
+ID	calcularTotal	Línea 16
+VARIABLE	$total	Línea 16
+NUMBER	50	Línea 16
+ECHO	echo	Línea 18
+VARIABLE	$valor_final	Línea 18
+PHP_CLOSE	?>	Línea 20

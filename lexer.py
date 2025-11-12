@@ -35,6 +35,10 @@ tokens = [
     'COMMENT',
     'BLOCK_COMMENT',
     'ID',
+    'VARIABLE',
+    'NUMBER',
+    'FLOAT',
+    'STRING', 
 ] + list(reserved.values()) #usé list en vez de tuple porque se añadirán más tokens por los otros compañeros
 
 # Expresiones regulares simples
@@ -52,6 +56,34 @@ def t_COMMENT(t):
 def t_BLOCK_COMMENT(t):
     r'/\*[\s\S]*?\*/'
     pass 
+# ------------------------------------------------------------
+# Integrante 2: Sergio Rodriguez - Comienzo
+# ------------------------------------------------------------
+
+# Variables 
+def t_VARIABLE(t):
+    r'\$[a-zA-Z_][a-zA-Z0-9_]*'
+    return t
+
+# Números 
+def t_FLOAT(t):
+    r'\d+\.\d+'
+    t.value = float(t.value)
+    return t
+
+def t_NUMBER(t):
+    r'\d+'
+    t.value = int(t.value)
+    return t
+
+def t_STRING(t):
+    r'(\".*?\")|(\'.*?\')'
+    t.value = t.value[1:-1] 
+    return t
+
+# ------------------------------------------------------------
+# Integrante 2: Sergio Rodriguez - Fin
+# ------------------------------------------------------------
 
 # Identificadores y palabras reservadas
 def t_ID(t):
@@ -111,9 +143,10 @@ def ejecutar_lexer(nombre_archivo, usuario_git):
 # Integrante 1: Angie Alfonso - Fin
 # ------------------------------------------------------------
 
+
 if __name__ == "__main__":
-    prueba = "algoritmo1.php"
-    usuario = "angie329"
+    prueba = "algoritmo2.php"
+    usuario = "Cykes07"
     if not os.path.exists(prueba):
         print(f"No existe {prueba} — crea ese archivo en la misma carpeta e intenta de nuevo.")
     else:
