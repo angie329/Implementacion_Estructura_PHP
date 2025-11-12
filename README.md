@@ -11,6 +11,7 @@ El objetivo es identificar tokens básicos del lenguaje y generar un archivo de 
 |-----------------|----------------|---------------|
 | **Angie Alfonso** | Integrante 1 | Implementación base del lexer, definición de palabras reservadas, manejo de comentarios y función de logging |
 | **Sergio Rodriguez** | Integrante 2 | Definición de tokens para `VARIABLE`, `NUMBER`, `FLOAT` y `STRING`. |
+| **Bryan Zhang** | Integrante 3 | Definición de tokens para Operadores. |
 
 ---
 
