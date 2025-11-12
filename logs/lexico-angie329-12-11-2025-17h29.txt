@@ -1,0 +1,25 @@
+Analizador Léxico PHP - Usuario: angie329
+Fecha y hora: 12-11-2025-17h29
+==================================================
+
+PHP_OPEN	<?php	Línea 1
+IF	if	Línea 2
+TRUE	true	Línea 2
+ECHO	echo	Línea 3
+ID	Hola	Línea 3
+ID	Mundo	Línea 3
+ELSE	else	Línea 4
+ECHO	echo	Línea 5
+ID	Adi	Línea 5
+ID	s	Línea 5
+CLASS	class	Línea 8
+ID	Persona	Línea 8
+PUBLIC	public	Línea 9
+FUNCTION	function	Línea 9
+ID	hablar	Línea 9
+ECHO	echo	Línea 10
+ID	Mi	Línea 10
+ID	nombre	Línea 10
+ID	es	Línea 10
+ID	nombre	Línea 10
+PHP_CLOSE	?>	Línea 14
