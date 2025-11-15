@@ -1,0 +1,7 @@
+Analizador Sintáctico
+Usuario: angie329
+Fecha: 15-11-2025-17h19
+==================================================
+
+Error de sintaxis cerca de 'function' en la línea 9
+Error de sintaxis cerca de '}' en la línea 11
