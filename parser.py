@@ -30,7 +30,9 @@ def p_statement(p):
                 | if_statement
                 | class_definition
                 | php_open
-                | php_close'''
+                | php_close
+                | while_statement
+                | function_definition'''
     p[0] = p[1]
 
 
@@ -99,23 +101,93 @@ def p_class_member(p):
 
 
 # ============================================================
-# INTEGRANTE 2 - rellenar su parte
+# INTEGRANTE 2 - Sergio Rodríguez
 # ============================================================
 
+def p_while_statement(p):
+    '''while_statement : WHILE LPAREN expression RPAREN block'''
+    p[0] = ('while', p[3], p[5])
 
+def p_function_definition(p):
+    '''function_definition : FUNCTION ID LPAREN RPAREN block''' 
+    p[0] = ('function_def', p[2], p[5])
+
+precedence = (
+    ('left', 'LOR'),
+    ('left', 'LAND'),
+    ('nonassoc', 'EQ', 'NOT_EQ', 'LT', 'GT', 'LTE', 'GTE'),
+    ('left', 'PLUS', 'MINUS'),
+    ('left', 'TIMES', 'DIVIDE', 'MODULO'),
+    ('right', 'POW'),
+    ('right', 'UMINUS', 'LNOT'), 
+    ('left', 'INC', 'DEC'),
+)
+
+def p_expression_binop(p):
+    '''expression : expression PLUS expression
+                  | expression MINUS expression
+                  | expression TIMES expression
+                  | expression DIVIDE expression
+                  | expression MODULO expression
+                  | expression POW expression
+                  | expression EQ expression
+                  | expression NOT_EQ expression
+                  | expression LT expression
+                  | expression GT expression
+                  | expression LTE expression
+                  | expression GTE expression
+                  | expression LAND expression
+                  | expression LOR expression'''
+    p[0] = ('binop', p[2], p[1], p[3])
+
+def p_expression_unary(p):
+    '''expression : MINUS expression %prec UMINUS
+                  | LNOT expression'''
+    p[0] = ('unary', p[1], p[2])
+
+def p_expression_inc_dec(p):
+    '''expression : VARIABLE INC
+                  | VARIABLE DEC'''
+    p[0] = ('incdec', p[2], p[1])
+    
+def p_expression_group(p):
+    '''expression : LPAREN expression RPAREN'''
+    p[0] = p[2]
+
+def p_expression_literals(p):
+    '''expression : NUMBER
+                  | FLOAT
+                  | STRING
+                  | TRUE
+                  | FALSE
+                  | NULL'''
+    p[0] = ('literal', p[1])
+
+def p_expression_variable(p):
+    '''expression : VARIABLE'''
+    p[0] = ('variable', p[1])
+
+# Estructura de Datos: Array (como expresión)
+def p_expression_array(p):
+    '''expression : LBRACKET array_elements RBRACKET'''
+    p[0] = ('array', p[2])
+
+# Reglas auxiliares para el array
+def p_array_elements(p):
+    '''array_elements : expression_list
+                      | empty'''
+    p[0] = p[1]
+
+def p_expression_list(p):
+    '''expression_list : expression_list COMMA expression
+                       | expression'''
+    if len(p) == 4:
+        p[0] = p[1] + [p[3]]
+    else:
+        p[0] = [p[1]]
 # ============================================================
-# INTEGRANTE 3 - rellenar su parte
+# INTEGRANTE 3 - 
 # ============================================================
-
-#poniendo temporalmente la función que le toca al integrante 3 ( completarla mejor ) para que funcione el parser
-def p_expression_basic(p):
-    '''expression : VARIABLE
-                | NUMBER
-                | STRING
-                | TRUE
-                | FALSE'''
-    p[0] = ("exp_basica", p[1])
-
 
 
 # utilidades
@@ -175,4 +247,4 @@ def ejecutar_parser(archivo, usuario):
 
 #prueba 
 if __name__ == "__main__":
-    ejecutar_parser("algoritmo1.php", "angie329")
+    ejecutar_parser("algoritmo2.php", "Cykes07")

@@ -1,0 +1,3406 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    AND
+    ARROW
+    BLOCK_COMMENT
+    COLON
+    COMMENT
+    CONCAT_EQUALS
+    DOUBLE_COLON
+    FOR
+    MINUS_EQUALS
+    NEW
+    NOT
+    OR
+    PHP_SHORT_OPEN
+    PLUS_EQUALS
+    QMARK
+    RETURN
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statement_list
+Rule 2     statement_list -> statement_list statement
+Rule 3     statement_list -> statement
+Rule 4     statement -> assignment
+Rule 5     statement -> print_statement
+Rule 6     statement -> if_statement
+Rule 7     statement -> class_definition
+Rule 8     statement -> php_open
+Rule 9     statement -> php_close
+Rule 10    statement -> while_statement
+Rule 11    statement -> function_definition
+Rule 12    php_open -> PHP_OPEN
+Rule 13    php_close -> PHP_CLOSE
+Rule 14    assignment -> VARIABLE EQUALS expression SEMI
+Rule 15    print_statement -> ECHO expression SEMI
+Rule 16    if_statement -> IF LPAREN expression RPAREN block
+Rule 17    if_statement -> IF LPAREN expression RPAREN block ELSE block
+Rule 18    block -> LBRACE statement_list RBRACE
+Rule 19    class_definition -> CLASS ID LBRACE class_body RBRACE
+Rule 20    class_body -> class_body class_member
+Rule 21    class_body -> class_member
+Rule 22    class_body -> empty
+Rule 23    class_member -> PUBLIC VARIABLE SEMI
+Rule 24    class_member -> PRIVATE VARIABLE SEMI
+Rule 25    class_member -> PROTECTED VARIABLE SEMI
+Rule 26    class_member -> FUNCTION ID LPAREN RPAREN block
+Rule 27    while_statement -> WHILE LPAREN expression RPAREN block
+Rule 28    function_definition -> FUNCTION ID LPAREN RPAREN block
+Rule 29    expression -> expression PLUS expression
+Rule 30    expression -> expression MINUS expression
+Rule 31    expression -> expression TIMES expression
+Rule 32    expression -> expression DIVIDE expression
+Rule 33    expression -> expression MODULO expression
+Rule 34    expression -> expression POW expression
+Rule 35    expression -> expression EQ expression
+Rule 36    expression -> expression NOT_EQ expression
+Rule 37    expression -> expression LT expression
+Rule 38    expression -> expression GT expression
+Rule 39    expression -> expression LTE expression
+Rule 40    expression -> expression GTE expression
+Rule 41    expression -> expression LAND expression
+Rule 42    expression -> expression LOR expression
+Rule 43    expression -> MINUS expression
+Rule 44    expression -> LNOT expression
+Rule 45    expression -> VARIABLE INC
+Rule 46    expression -> VARIABLE DEC
+Rule 47    expression -> LPAREN expression RPAREN
+Rule 48    expression -> NUMBER
+Rule 49    expression -> FLOAT
+Rule 50    expression -> STRING
+Rule 51    expression -> TRUE
+Rule 52    expression -> FALSE
+Rule 53    expression -> NULL
+Rule 54    expression -> VARIABLE
+Rule 55    expression -> LBRACKET array_elements RBRACKET
+Rule 56    array_elements -> expression_list
+Rule 57    array_elements -> empty
+Rule 58    expression_list -> expression_list COMMA expression
+Rule 59    expression_list -> expression
+Rule 60    empty -> <empty>
+
+Terminals, with rules where they appear
+
+AND                  : 
+ARROW                : 
+BLOCK_COMMENT        : 
+CLASS                : 19
+COLON                : 
+COMMA                : 58
+COMMENT              : 
+CONCAT_EQUALS        : 
+DEC                  : 46
+DIVIDE               : 32
+DOUBLE_COLON         : 
+ECHO                 : 15
+ELSE                 : 17
+EQ                   : 35
+EQUALS               : 14
+FALSE                : 52
+FLOAT                : 49
+FOR                  : 
+FUNCTION             : 26 28
+GT                   : 38
+GTE                  : 40
+ID                   : 19 26 28
+IF                   : 16 17
+INC                  : 45
+LAND                 : 41
+LBRACE               : 18 19
+LBRACKET             : 55
+LNOT                 : 44
+LOR                  : 42
+LPAREN               : 16 17 26 27 28 47
+LT                   : 37
+LTE                  : 39
+MINUS                : 30 43
+MINUS_EQUALS         : 
+MODULO               : 33
+NEW                  : 
+NOT                  : 
+NOT_EQ               : 36
+NULL                 : 53
+NUMBER               : 48
+OR                   : 
+PHP_CLOSE            : 13
+PHP_OPEN             : 12
+PHP_SHORT_OPEN       : 
+PLUS                 : 29
+PLUS_EQUALS          : 
+POW                  : 34
+PRIVATE              : 24
+PROTECTED            : 25
+PUBLIC               : 23
+QMARK                : 
+RBRACE               : 18 19
+RBRACKET             : 55
+RETURN               : 
+RPAREN               : 16 17 26 27 28 47
+SEMI                 : 14 15 23 24 25
+STRING               : 50
+TIMES                : 31
+TRUE                 : 51
+VARIABLE             : 14 23 24 25 45 46 54
+WHILE                : 27
+error                : 
+
+Nonterminals, with rules where they appear
+
+array_elements       : 55
+assignment           : 4
+block                : 16 17 17 26 27 28
+class_body           : 19 20
+class_definition     : 7
+class_member         : 20 21
+empty                : 22 57
+expression           : 14 15 16 17 27 29 29 30 30 31 31 32 32 33 33 34 34 35 35 36 36 37 37 38 38 39 39 40 40 41 41 42 42 43 44 47 58 59
+expression_list      : 56 58
+function_definition  : 11
+if_statement         : 6
+php_close            : 9
+php_open             : 8
+print_statement      : 5
+program              : 0
+statement            : 2 3
+statement_list       : 1 2 18
+while_statement      : 10
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statement_list
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . assignment
+    (5) statement -> . print_statement
+    (6) statement -> . if_statement
+    (7) statement -> . class_definition
+    (8) statement -> . php_open
+    (9) statement -> . php_close
+    (10) statement -> . while_statement
+    (11) statement -> . function_definition
+    (14) assignment -> . VARIABLE EQUALS expression SEMI
+    (15) print_statement -> . ECHO expression SEMI
+    (16) if_statement -> . IF LPAREN expression RPAREN block
+    (17) if_statement -> . IF LPAREN expression RPAREN block ELSE block
+    (19) class_definition -> . CLASS ID LBRACE class_body RBRACE
+    (12) php_open -> . PHP_OPEN
+    (13) php_close -> . PHP_CLOSE
+    (27) while_statement -> . WHILE LPAREN expression RPAREN block
+    (28) function_definition -> . FUNCTION ID LPAREN RPAREN block
+
+    VARIABLE        shift and go to state 12
+    ECHO            shift and go to state 13
+    IF              shift and go to state 14
+    CLASS           shift and go to state 15
+    PHP_OPEN        shift and go to state 16
+    PHP_CLOSE       shift and go to state 17
+    WHILE           shift and go to state 18
+    FUNCTION        shift and go to state 19
+
+    program                        shift and go to state 1
+    statement_list                 shift and go to state 2
+    statement                      shift and go to state 3
+    assignment                     shift and go to state 4
+    print_statement                shift and go to state 5
+    if_statement                   shift and go to state 6
+    class_definition               shift and go to state 7
+    php_open                       shift and go to state 8
+    php_close                      shift and go to state 9
+    while_statement                shift and go to state 10
+    function_definition            shift and go to state 11
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statement_list .
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . assignment
+    (5) statement -> . print_statement
+    (6) statement -> . if_statement
+    (7) statement -> . class_definition
+    (8) statement -> . php_open
+    (9) statement -> . php_close
+    (10) statement -> . while_statement
+    (11) statement -> . function_definition
+    (14) assignment -> . VARIABLE EQUALS expression SEMI
+    (15) print_statement -> . ECHO expression SEMI
+    (16) if_statement -> . IF LPAREN expression RPAREN block
+    (17) if_statement -> . IF LPAREN expression RPAREN block ELSE block
+    (19) class_definition -> . CLASS ID LBRACE class_body RBRACE
+    (12) php_open -> . PHP_OPEN
+    (13) php_close -> . PHP_CLOSE
+    (27) while_statement -> . WHILE LPAREN expression RPAREN block
+    (28) function_definition -> . FUNCTION ID LPAREN RPAREN block
+
+    $end            reduce using rule 1 (program -> statement_list .)
+    VARIABLE        shift and go to state 12
+    ECHO            shift and go to state 13
+    IF              shift and go to state 14
+    CLASS           shift and go to state 15
+    PHP_OPEN        shift and go to state 16
+    PHP_CLOSE       shift and go to state 17
+    WHILE           shift and go to state 18
+    FUNCTION        shift and go to state 19
+
+    statement                      shift and go to state 20
+    assignment                     shift and go to state 4
+    print_statement                shift and go to state 5
+    if_statement                   shift and go to state 6
+    class_definition               shift and go to state 7
+    php_open                       shift and go to state 8
+    php_close                      shift and go to state 9
+    while_statement                shift and go to state 10
+    function_definition            shift and go to state 11
+
+state 3
+
+    (3) statement_list -> statement .
+
+    VARIABLE        reduce using rule 3 (statement_list -> statement .)
+    ECHO            reduce using rule 3 (statement_list -> statement .)
+    IF              reduce using rule 3 (statement_list -> statement .)
+    CLASS           reduce using rule 3 (statement_list -> statement .)
+    PHP_OPEN        reduce using rule 3 (statement_list -> statement .)
+    PHP_CLOSE       reduce using rule 3 (statement_list -> statement .)
+    WHILE           reduce using rule 3 (statement_list -> statement .)
+    FUNCTION        reduce using rule 3 (statement_list -> statement .)
+    $end            reduce using rule 3 (statement_list -> statement .)
+    RBRACE          reduce using rule 3 (statement_list -> statement .)
+
+
+state 4
+
+    (4) statement -> assignment .
+
+    VARIABLE        reduce using rule 4 (statement -> assignment .)
+    ECHO            reduce using rule 4 (statement -> assignment .)
+    IF              reduce using rule 4 (statement -> assignment .)
+    CLASS           reduce using rule 4 (statement -> assignment .)
+    PHP_OPEN        reduce using rule 4 (statement -> assignment .)
+    PHP_CLOSE       reduce using rule 4 (statement -> assignment .)
+    WHILE           reduce using rule 4 (statement -> assignment .)
+    FUNCTION        reduce using rule 4 (statement -> assignment .)
+    $end            reduce using rule 4 (statement -> assignment .)
+    RBRACE          reduce using rule 4 (statement -> assignment .)
+
+
+state 5
+
+    (5) statement -> print_statement .
+
+    VARIABLE        reduce using rule 5 (statement -> print_statement .)
+    ECHO            reduce using rule 5 (statement -> print_statement .)
+    IF              reduce using rule 5 (statement -> print_statement .)
+    CLASS           reduce using rule 5 (statement -> print_statement .)
+    PHP_OPEN        reduce using rule 5 (statement -> print_statement .)
+    PHP_CLOSE       reduce using rule 5 (statement -> print_statement .)
+    WHILE           reduce using rule 5 (statement -> print_statement .)
+    FUNCTION        reduce using rule 5 (statement -> print_statement .)
+    $end            reduce using rule 5 (statement -> print_statement .)
+    RBRACE          reduce using rule 5 (statement -> print_statement .)
+
+
+state 6
+
+    (6) statement -> if_statement .
+
+    VARIABLE        reduce using rule 6 (statement -> if_statement .)
+    ECHO            reduce using rule 6 (statement -> if_statement .)
+    IF              reduce using rule 6 (statement -> if_statement .)
+    CLASS           reduce using rule 6 (statement -> if_statement .)
+    PHP_OPEN        reduce using rule 6 (statement -> if_statement .)
+    PHP_CLOSE       reduce using rule 6 (statement -> if_statement .)
+    WHILE           reduce using rule 6 (statement -> if_statement .)
+    FUNCTION        reduce using rule 6 (statement -> if_statement .)
+    $end            reduce using rule 6 (statement -> if_statement .)
+    RBRACE          reduce using rule 6 (statement -> if_statement .)
+
+
+state 7
+
+    (7) statement -> class_definition .
+
+    VARIABLE        reduce using rule 7 (statement -> class_definition .)
+    ECHO            reduce using rule 7 (statement -> class_definition .)
+    IF              reduce using rule 7 (statement -> class_definition .)
+    CLASS           reduce using rule 7 (statement -> class_definition .)
+    PHP_OPEN        reduce using rule 7 (statement -> class_definition .)
+    PHP_CLOSE       reduce using rule 7 (statement -> class_definition .)
+    WHILE           reduce using rule 7 (statement -> class_definition .)
+    FUNCTION        reduce using rule 7 (statement -> class_definition .)
+    $end            reduce using rule 7 (statement -> class_definition .)
+    RBRACE          reduce using rule 7 (statement -> class_definition .)
+
+
+state 8
+
+    (8) statement -> php_open .
+
+    VARIABLE        reduce using rule 8 (statement -> php_open .)
+    ECHO            reduce using rule 8 (statement -> php_open .)
+    IF              reduce using rule 8 (statement -> php_open .)
+    CLASS           reduce using rule 8 (statement -> php_open .)
+    PHP_OPEN        reduce using rule 8 (statement -> php_open .)
+    PHP_CLOSE       reduce using rule 8 (statement -> php_open .)
+    WHILE           reduce using rule 8 (statement -> php_open .)
+    FUNCTION        reduce using rule 8 (statement -> php_open .)
+    $end            reduce using rule 8 (statement -> php_open .)
+    RBRACE          reduce using rule 8 (statement -> php_open .)
+
+
+state 9
+
+    (9) statement -> php_close .
+
+    VARIABLE        reduce using rule 9 (statement -> php_close .)
+    ECHO            reduce using rule 9 (statement -> php_close .)
+    IF              reduce using rule 9 (statement -> php_close .)
+    CLASS           reduce using rule 9 (statement -> php_close .)
+    PHP_OPEN        reduce using rule 9 (statement -> php_close .)
+    PHP_CLOSE       reduce using rule 9 (statement -> php_close .)
+    WHILE           reduce using rule 9 (statement -> php_close .)
+    FUNCTION        reduce using rule 9 (statement -> php_close .)
+    $end            reduce using rule 9 (statement -> php_close .)
+    RBRACE          reduce using rule 9 (statement -> php_close .)
+
+
+state 10
+
+    (10) statement -> while_statement .
+
+    VARIABLE        reduce using rule 10 (statement -> while_statement .)
+    ECHO            reduce using rule 10 (statement -> while_statement .)
+    IF              reduce using rule 10 (statement -> while_statement .)
+    CLASS           reduce using rule 10 (statement -> while_statement .)
+    PHP_OPEN        reduce using rule 10 (statement -> while_statement .)
+    PHP_CLOSE       reduce using rule 10 (statement -> while_statement .)
+    WHILE           reduce using rule 10 (statement -> while_statement .)
+    FUNCTION        reduce using rule 10 (statement -> while_statement .)
+    $end            reduce using rule 10 (statement -> while_statement .)
+    RBRACE          reduce using rule 10 (statement -> while_statement .)
+
+
+state 11
+
+    (11) statement -> function_definition .
+
+    VARIABLE        reduce using rule 11 (statement -> function_definition .)
+    ECHO            reduce using rule 11 (statement -> function_definition .)
+    IF              reduce using rule 11 (statement -> function_definition .)
+    CLASS           reduce using rule 11 (statement -> function_definition .)
+    PHP_OPEN        reduce using rule 11 (statement -> function_definition .)
+    PHP_CLOSE       reduce using rule 11 (statement -> function_definition .)
+    WHILE           reduce using rule 11 (statement -> function_definition .)
+    FUNCTION        reduce using rule 11 (statement -> function_definition .)
+    $end            reduce using rule 11 (statement -> function_definition .)
+    RBRACE          reduce using rule 11 (statement -> function_definition .)
+
+
+state 12
+
+    (14) assignment -> VARIABLE . EQUALS expression SEMI
+
+    EQUALS          shift and go to state 21
+
+
+state 13
+
+    (15) print_statement -> ECHO . expression SEMI
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 22
+
+state 14
+
+    (16) if_statement -> IF . LPAREN expression RPAREN block
+    (17) if_statement -> IF . LPAREN expression RPAREN block ELSE block
+
+    LPAREN          shift and go to state 34
+
+
+state 15
+
+    (19) class_definition -> CLASS . ID LBRACE class_body RBRACE
+
+    ID              shift and go to state 35
+
+
+state 16
+
+    (12) php_open -> PHP_OPEN .
+
+    VARIABLE        reduce using rule 12 (php_open -> PHP_OPEN .)
+    ECHO            reduce using rule 12 (php_open -> PHP_OPEN .)
+    IF              reduce using rule 12 (php_open -> PHP_OPEN .)
+    CLASS           reduce using rule 12 (php_open -> PHP_OPEN .)
+    PHP_OPEN        reduce using rule 12 (php_open -> PHP_OPEN .)
+    PHP_CLOSE       reduce using rule 12 (php_open -> PHP_OPEN .)
+    WHILE           reduce using rule 12 (php_open -> PHP_OPEN .)
+    FUNCTION        reduce using rule 12 (php_open -> PHP_OPEN .)
+    $end            reduce using rule 12 (php_open -> PHP_OPEN .)
+    RBRACE          reduce using rule 12 (php_open -> PHP_OPEN .)
+
+
+state 17
+
+    (13) php_close -> PHP_CLOSE .
+
+    VARIABLE        reduce using rule 13 (php_close -> PHP_CLOSE .)
+    ECHO            reduce using rule 13 (php_close -> PHP_CLOSE .)
+    IF              reduce using rule 13 (php_close -> PHP_CLOSE .)
+    CLASS           reduce using rule 13 (php_close -> PHP_CLOSE .)
+    PHP_OPEN        reduce using rule 13 (php_close -> PHP_CLOSE .)
+    PHP_CLOSE       reduce using rule 13 (php_close -> PHP_CLOSE .)
+    WHILE           reduce using rule 13 (php_close -> PHP_CLOSE .)
+    FUNCTION        reduce using rule 13 (php_close -> PHP_CLOSE .)
+    $end            reduce using rule 13 (php_close -> PHP_CLOSE .)
+    RBRACE          reduce using rule 13 (php_close -> PHP_CLOSE .)
+
+
+state 18
+
+    (27) while_statement -> WHILE . LPAREN expression RPAREN block
+
+    LPAREN          shift and go to state 36
+
+
+state 19
+
+    (28) function_definition -> FUNCTION . ID LPAREN RPAREN block
+
+    ID              shift and go to state 37
+
+
+state 20
+
+    (2) statement_list -> statement_list statement .
+
+    VARIABLE        reduce using rule 2 (statement_list -> statement_list statement .)
+    ECHO            reduce using rule 2 (statement_list -> statement_list statement .)
+    IF              reduce using rule 2 (statement_list -> statement_list statement .)
+    CLASS           reduce using rule 2 (statement_list -> statement_list statement .)
+    PHP_OPEN        reduce using rule 2 (statement_list -> statement_list statement .)
+    PHP_CLOSE       reduce using rule 2 (statement_list -> statement_list statement .)
+    WHILE           reduce using rule 2 (statement_list -> statement_list statement .)
+    FUNCTION        reduce using rule 2 (statement_list -> statement_list statement .)
+    $end            reduce using rule 2 (statement_list -> statement_list statement .)
+    RBRACE          reduce using rule 2 (statement_list -> statement_list statement .)
+
+
+state 21
+
+    (14) assignment -> VARIABLE EQUALS . expression SEMI
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 38
+
+state 22
+
+    (15) print_statement -> ECHO expression . SEMI
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            shift and go to state 39
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+    EQ              shift and go to state 46
+    NOT_EQ          shift and go to state 47
+    LT              shift and go to state 48
+    GT              shift and go to state 49
+    LTE             shift and go to state 50
+    GTE             shift and go to state 51
+    LAND            shift and go to state 52
+    LOR             shift and go to state 53
+
+
+state 23
+
+    (43) expression -> MINUS . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 54
+
+state 24
+
+    (44) expression -> LNOT . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 55
+
+state 25
+
+    (45) expression -> VARIABLE . INC
+    (46) expression -> VARIABLE . DEC
+    (54) expression -> VARIABLE .
+
+    INC             shift and go to state 56
+    DEC             shift and go to state 57
+    SEMI            reduce using rule 54 (expression -> VARIABLE .)
+    PLUS            reduce using rule 54 (expression -> VARIABLE .)
+    MINUS           reduce using rule 54 (expression -> VARIABLE .)
+    TIMES           reduce using rule 54 (expression -> VARIABLE .)
+    DIVIDE          reduce using rule 54 (expression -> VARIABLE .)
+    MODULO          reduce using rule 54 (expression -> VARIABLE .)
+    POW             reduce using rule 54 (expression -> VARIABLE .)
+    EQ              reduce using rule 54 (expression -> VARIABLE .)
+    NOT_EQ          reduce using rule 54 (expression -> VARIABLE .)
+    LT              reduce using rule 54 (expression -> VARIABLE .)
+    GT              reduce using rule 54 (expression -> VARIABLE .)
+    LTE             reduce using rule 54 (expression -> VARIABLE .)
+    GTE             reduce using rule 54 (expression -> VARIABLE .)
+    LAND            reduce using rule 54 (expression -> VARIABLE .)
+    LOR             reduce using rule 54 (expression -> VARIABLE .)
+    RPAREN          reduce using rule 54 (expression -> VARIABLE .)
+    COMMA           reduce using rule 54 (expression -> VARIABLE .)
+    RBRACKET        reduce using rule 54 (expression -> VARIABLE .)
+
+
+state 26
+
+    (47) expression -> LPAREN . expression RPAREN
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 58
+
+state 27
+
+    (48) expression -> NUMBER .
+
+    SEMI            reduce using rule 48 (expression -> NUMBER .)
+    PLUS            reduce using rule 48 (expression -> NUMBER .)
+    MINUS           reduce using rule 48 (expression -> NUMBER .)
+    TIMES           reduce using rule 48 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 48 (expression -> NUMBER .)
+    MODULO          reduce using rule 48 (expression -> NUMBER .)
+    POW             reduce using rule 48 (expression -> NUMBER .)
+    EQ              reduce using rule 48 (expression -> NUMBER .)
+    NOT_EQ          reduce using rule 48 (expression -> NUMBER .)
+    LT              reduce using rule 48 (expression -> NUMBER .)
+    GT              reduce using rule 48 (expression -> NUMBER .)
+    LTE             reduce using rule 48 (expression -> NUMBER .)
+    GTE             reduce using rule 48 (expression -> NUMBER .)
+    LAND            reduce using rule 48 (expression -> NUMBER .)
+    LOR             reduce using rule 48 (expression -> NUMBER .)
+    RPAREN          reduce using rule 48 (expression -> NUMBER .)
+    COMMA           reduce using rule 48 (expression -> NUMBER .)
+    RBRACKET        reduce using rule 48 (expression -> NUMBER .)
+
+
+state 28
+
+    (49) expression -> FLOAT .
+
+    SEMI            reduce using rule 49 (expression -> FLOAT .)
+    PLUS            reduce using rule 49 (expression -> FLOAT .)
+    MINUS           reduce using rule 49 (expression -> FLOAT .)
+    TIMES           reduce using rule 49 (expression -> FLOAT .)
+    DIVIDE          reduce using rule 49 (expression -> FLOAT .)
+    MODULO          reduce using rule 49 (expression -> FLOAT .)
+    POW             reduce using rule 49 (expression -> FLOAT .)
+    EQ              reduce using rule 49 (expression -> FLOAT .)
+    NOT_EQ          reduce using rule 49 (expression -> FLOAT .)
+    LT              reduce using rule 49 (expression -> FLOAT .)
+    GT              reduce using rule 49 (expression -> FLOAT .)
+    LTE             reduce using rule 49 (expression -> FLOAT .)
+    GTE             reduce using rule 49 (expression -> FLOAT .)
+    LAND            reduce using rule 49 (expression -> FLOAT .)
+    LOR             reduce using rule 49 (expression -> FLOAT .)
+    RPAREN          reduce using rule 49 (expression -> FLOAT .)
+    COMMA           reduce using rule 49 (expression -> FLOAT .)
+    RBRACKET        reduce using rule 49 (expression -> FLOAT .)
+
+
+state 29
+
+    (50) expression -> STRING .
+
+    SEMI            reduce using rule 50 (expression -> STRING .)
+    PLUS            reduce using rule 50 (expression -> STRING .)
+    MINUS           reduce using rule 50 (expression -> STRING .)
+    TIMES           reduce using rule 50 (expression -> STRING .)
+    DIVIDE          reduce using rule 50 (expression -> STRING .)
+    MODULO          reduce using rule 50 (expression -> STRING .)
+    POW             reduce using rule 50 (expression -> STRING .)
+    EQ              reduce using rule 50 (expression -> STRING .)
+    NOT_EQ          reduce using rule 50 (expression -> STRING .)
+    LT              reduce using rule 50 (expression -> STRING .)
+    GT              reduce using rule 50 (expression -> STRING .)
+    LTE             reduce using rule 50 (expression -> STRING .)
+    GTE             reduce using rule 50 (expression -> STRING .)
+    LAND            reduce using rule 50 (expression -> STRING .)
+    LOR             reduce using rule 50 (expression -> STRING .)
+    RPAREN          reduce using rule 50 (expression -> STRING .)
+    COMMA           reduce using rule 50 (expression -> STRING .)
+    RBRACKET        reduce using rule 50 (expression -> STRING .)
+
+
+state 30
+
+    (51) expression -> TRUE .
+
+    SEMI            reduce using rule 51 (expression -> TRUE .)
+    PLUS            reduce using rule 51 (expression -> TRUE .)
+    MINUS           reduce using rule 51 (expression -> TRUE .)
+    TIMES           reduce using rule 51 (expression -> TRUE .)
+    DIVIDE          reduce using rule 51 (expression -> TRUE .)
+    MODULO          reduce using rule 51 (expression -> TRUE .)
+    POW             reduce using rule 51 (expression -> TRUE .)
+    EQ              reduce using rule 51 (expression -> TRUE .)
+    NOT_EQ          reduce using rule 51 (expression -> TRUE .)
+    LT              reduce using rule 51 (expression -> TRUE .)
+    GT              reduce using rule 51 (expression -> TRUE .)
+    LTE             reduce using rule 51 (expression -> TRUE .)
+    GTE             reduce using rule 51 (expression -> TRUE .)
+    LAND            reduce using rule 51 (expression -> TRUE .)
+    LOR             reduce using rule 51 (expression -> TRUE .)
+    RPAREN          reduce using rule 51 (expression -> TRUE .)
+    COMMA           reduce using rule 51 (expression -> TRUE .)
+    RBRACKET        reduce using rule 51 (expression -> TRUE .)
+
+
+state 31
+
+    (52) expression -> FALSE .
+
+    SEMI            reduce using rule 52 (expression -> FALSE .)
+    PLUS            reduce using rule 52 (expression -> FALSE .)
+    MINUS           reduce using rule 52 (expression -> FALSE .)
+    TIMES           reduce using rule 52 (expression -> FALSE .)
+    DIVIDE          reduce using rule 52 (expression -> FALSE .)
+    MODULO          reduce using rule 52 (expression -> FALSE .)
+    POW             reduce using rule 52 (expression -> FALSE .)
+    EQ              reduce using rule 52 (expression -> FALSE .)
+    NOT_EQ          reduce using rule 52 (expression -> FALSE .)
+    LT              reduce using rule 52 (expression -> FALSE .)
+    GT              reduce using rule 52 (expression -> FALSE .)
+    LTE             reduce using rule 52 (expression -> FALSE .)
+    GTE             reduce using rule 52 (expression -> FALSE .)
+    LAND            reduce using rule 52 (expression -> FALSE .)
+    LOR             reduce using rule 52 (expression -> FALSE .)
+    RPAREN          reduce using rule 52 (expression -> FALSE .)
+    COMMA           reduce using rule 52 (expression -> FALSE .)
+    RBRACKET        reduce using rule 52 (expression -> FALSE .)
+
+
+state 32
+
+    (53) expression -> NULL .
+
+    SEMI            reduce using rule 53 (expression -> NULL .)
+    PLUS            reduce using rule 53 (expression -> NULL .)
+    MINUS           reduce using rule 53 (expression -> NULL .)
+    TIMES           reduce using rule 53 (expression -> NULL .)
+    DIVIDE          reduce using rule 53 (expression -> NULL .)
+    MODULO          reduce using rule 53 (expression -> NULL .)
+    POW             reduce using rule 53 (expression -> NULL .)
+    EQ              reduce using rule 53 (expression -> NULL .)
+    NOT_EQ          reduce using rule 53 (expression -> NULL .)
+    LT              reduce using rule 53 (expression -> NULL .)
+    GT              reduce using rule 53 (expression -> NULL .)
+    LTE             reduce using rule 53 (expression -> NULL .)
+    GTE             reduce using rule 53 (expression -> NULL .)
+    LAND            reduce using rule 53 (expression -> NULL .)
+    LOR             reduce using rule 53 (expression -> NULL .)
+    RPAREN          reduce using rule 53 (expression -> NULL .)
+    COMMA           reduce using rule 53 (expression -> NULL .)
+    RBRACKET        reduce using rule 53 (expression -> NULL .)
+
+
+state 33
+
+    (55) expression -> LBRACKET . array_elements RBRACKET
+    (56) array_elements -> . expression_list
+    (57) array_elements -> . empty
+    (58) expression_list -> . expression_list COMMA expression
+    (59) expression_list -> . expression
+    (60) empty -> .
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    RBRACKET        reduce using rule 60 (empty -> .)
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    array_elements                 shift and go to state 59
+    expression_list                shift and go to state 60
+    empty                          shift and go to state 61
+    expression                     shift and go to state 62
+
+state 34
+
+    (16) if_statement -> IF LPAREN . expression RPAREN block
+    (17) if_statement -> IF LPAREN . expression RPAREN block ELSE block
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 63
+
+state 35
+
+    (19) class_definition -> CLASS ID . LBRACE class_body RBRACE
+
+    LBRACE          shift and go to state 64
+
+
+state 36
+
+    (27) while_statement -> WHILE LPAREN . expression RPAREN block
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 65
+
+state 37
+
+    (28) function_definition -> FUNCTION ID . LPAREN RPAREN block
+
+    LPAREN          shift and go to state 66
+
+
+state 38
+
+    (14) assignment -> VARIABLE EQUALS expression . SEMI
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            shift and go to state 67
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+    EQ              shift and go to state 46
+    NOT_EQ          shift and go to state 47
+    LT              shift and go to state 48
+    GT              shift and go to state 49
+    LTE             shift and go to state 50
+    GTE             shift and go to state 51
+    LAND            shift and go to state 52
+    LOR             shift and go to state 53
+
+
+state 39
+
+    (15) print_statement -> ECHO expression SEMI .
+
+    VARIABLE        reduce using rule 15 (print_statement -> ECHO expression SEMI .)
+    ECHO            reduce using rule 15 (print_statement -> ECHO expression SEMI .)
+    IF              reduce using rule 15 (print_statement -> ECHO expression SEMI .)
+    CLASS           reduce using rule 15 (print_statement -> ECHO expression SEMI .)
+    PHP_OPEN        reduce using rule 15 (print_statement -> ECHO expression SEMI .)
+    PHP_CLOSE       reduce using rule 15 (print_statement -> ECHO expression SEMI .)
+    WHILE           reduce using rule 15 (print_statement -> ECHO expression SEMI .)
+    FUNCTION        reduce using rule 15 (print_statement -> ECHO expression SEMI .)
+    $end            reduce using rule 15 (print_statement -> ECHO expression SEMI .)
+    RBRACE          reduce using rule 15 (print_statement -> ECHO expression SEMI .)
+
+
+state 40
+
+    (29) expression -> expression PLUS . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 68
+
+state 41
+
+    (30) expression -> expression MINUS . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 69
+
+state 42
+
+    (31) expression -> expression TIMES . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 70
+
+state 43
+
+    (32) expression -> expression DIVIDE . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 71
+
+state 44
+
+    (33) expression -> expression MODULO . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 72
+
+state 45
+
+    (34) expression -> expression POW . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 73
+
+state 46
+
+    (35) expression -> expression EQ . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 74
+
+state 47
+
+    (36) expression -> expression NOT_EQ . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 75
+
+state 48
+
+    (37) expression -> expression LT . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 76
+
+state 49
+
+    (38) expression -> expression GT . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 77
+
+state 50
+
+    (39) expression -> expression LTE . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 78
+
+state 51
+
+    (40) expression -> expression GTE . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 79
+
+state 52
+
+    (41) expression -> expression LAND . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 80
+
+state 53
+
+    (42) expression -> expression LOR . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 81
+
+state 54
+
+    (43) expression -> MINUS expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            reduce using rule 43 (expression -> MINUS expression .)
+    PLUS            reduce using rule 43 (expression -> MINUS expression .)
+    MINUS           reduce using rule 43 (expression -> MINUS expression .)
+    TIMES           reduce using rule 43 (expression -> MINUS expression .)
+    DIVIDE          reduce using rule 43 (expression -> MINUS expression .)
+    MODULO          reduce using rule 43 (expression -> MINUS expression .)
+    POW             reduce using rule 43 (expression -> MINUS expression .)
+    EQ              reduce using rule 43 (expression -> MINUS expression .)
+    NOT_EQ          reduce using rule 43 (expression -> MINUS expression .)
+    LT              reduce using rule 43 (expression -> MINUS expression .)
+    GT              reduce using rule 43 (expression -> MINUS expression .)
+    LTE             reduce using rule 43 (expression -> MINUS expression .)
+    GTE             reduce using rule 43 (expression -> MINUS expression .)
+    LAND            reduce using rule 43 (expression -> MINUS expression .)
+    LOR             reduce using rule 43 (expression -> MINUS expression .)
+    RPAREN          reduce using rule 43 (expression -> MINUS expression .)
+    COMMA           reduce using rule 43 (expression -> MINUS expression .)
+    RBRACKET        reduce using rule 43 (expression -> MINUS expression .)
+
+  ! PLUS            [ shift and go to state 40 ]
+  ! MINUS           [ shift and go to state 41 ]
+  ! TIMES           [ shift and go to state 42 ]
+  ! DIVIDE          [ shift and go to state 43 ]
+  ! MODULO          [ shift and go to state 44 ]
+  ! POW             [ shift and go to state 45 ]
+  ! EQ              [ shift and go to state 46 ]
+  ! NOT_EQ          [ shift and go to state 47 ]
+  ! LT              [ shift and go to state 48 ]
+  ! GT              [ shift and go to state 49 ]
+  ! LTE             [ shift and go to state 50 ]
+  ! GTE             [ shift and go to state 51 ]
+  ! LAND            [ shift and go to state 52 ]
+  ! LOR             [ shift and go to state 53 ]
+
+
+state 55
+
+    (44) expression -> LNOT expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            reduce using rule 44 (expression -> LNOT expression .)
+    PLUS            reduce using rule 44 (expression -> LNOT expression .)
+    MINUS           reduce using rule 44 (expression -> LNOT expression .)
+    TIMES           reduce using rule 44 (expression -> LNOT expression .)
+    DIVIDE          reduce using rule 44 (expression -> LNOT expression .)
+    MODULO          reduce using rule 44 (expression -> LNOT expression .)
+    POW             reduce using rule 44 (expression -> LNOT expression .)
+    EQ              reduce using rule 44 (expression -> LNOT expression .)
+    NOT_EQ          reduce using rule 44 (expression -> LNOT expression .)
+    LT              reduce using rule 44 (expression -> LNOT expression .)
+    GT              reduce using rule 44 (expression -> LNOT expression .)
+    LTE             reduce using rule 44 (expression -> LNOT expression .)
+    GTE             reduce using rule 44 (expression -> LNOT expression .)
+    LAND            reduce using rule 44 (expression -> LNOT expression .)
+    LOR             reduce using rule 44 (expression -> LNOT expression .)
+    RPAREN          reduce using rule 44 (expression -> LNOT expression .)
+    COMMA           reduce using rule 44 (expression -> LNOT expression .)
+    RBRACKET        reduce using rule 44 (expression -> LNOT expression .)
+
+  ! PLUS            [ shift and go to state 40 ]
+  ! MINUS           [ shift and go to state 41 ]
+  ! TIMES           [ shift and go to state 42 ]
+  ! DIVIDE          [ shift and go to state 43 ]
+  ! MODULO          [ shift and go to state 44 ]
+  ! POW             [ shift and go to state 45 ]
+  ! EQ              [ shift and go to state 46 ]
+  ! NOT_EQ          [ shift and go to state 47 ]
+  ! LT              [ shift and go to state 48 ]
+  ! GT              [ shift and go to state 49 ]
+  ! LTE             [ shift and go to state 50 ]
+  ! GTE             [ shift and go to state 51 ]
+  ! LAND            [ shift and go to state 52 ]
+  ! LOR             [ shift and go to state 53 ]
+
+
+state 56
+
+    (45) expression -> VARIABLE INC .
+
+    SEMI            reduce using rule 45 (expression -> VARIABLE INC .)
+    PLUS            reduce using rule 45 (expression -> VARIABLE INC .)
+    MINUS           reduce using rule 45 (expression -> VARIABLE INC .)
+    TIMES           reduce using rule 45 (expression -> VARIABLE INC .)
+    DIVIDE          reduce using rule 45 (expression -> VARIABLE INC .)
+    MODULO          reduce using rule 45 (expression -> VARIABLE INC .)
+    POW             reduce using rule 45 (expression -> VARIABLE INC .)
+    EQ              reduce using rule 45 (expression -> VARIABLE INC .)
+    NOT_EQ          reduce using rule 45 (expression -> VARIABLE INC .)
+    LT              reduce using rule 45 (expression -> VARIABLE INC .)
+    GT              reduce using rule 45 (expression -> VARIABLE INC .)
+    LTE             reduce using rule 45 (expression -> VARIABLE INC .)
+    GTE             reduce using rule 45 (expression -> VARIABLE INC .)
+    LAND            reduce using rule 45 (expression -> VARIABLE INC .)
+    LOR             reduce using rule 45 (expression -> VARIABLE INC .)
+    RPAREN          reduce using rule 45 (expression -> VARIABLE INC .)
+    COMMA           reduce using rule 45 (expression -> VARIABLE INC .)
+    RBRACKET        reduce using rule 45 (expression -> VARIABLE INC .)
+
+
+state 57
+
+    (46) expression -> VARIABLE DEC .
+
+    SEMI            reduce using rule 46 (expression -> VARIABLE DEC .)
+    PLUS            reduce using rule 46 (expression -> VARIABLE DEC .)
+    MINUS           reduce using rule 46 (expression -> VARIABLE DEC .)
+    TIMES           reduce using rule 46 (expression -> VARIABLE DEC .)
+    DIVIDE          reduce using rule 46 (expression -> VARIABLE DEC .)
+    MODULO          reduce using rule 46 (expression -> VARIABLE DEC .)
+    POW             reduce using rule 46 (expression -> VARIABLE DEC .)
+    EQ              reduce using rule 46 (expression -> VARIABLE DEC .)
+    NOT_EQ          reduce using rule 46 (expression -> VARIABLE DEC .)
+    LT              reduce using rule 46 (expression -> VARIABLE DEC .)
+    GT              reduce using rule 46 (expression -> VARIABLE DEC .)
+    LTE             reduce using rule 46 (expression -> VARIABLE DEC .)
+    GTE             reduce using rule 46 (expression -> VARIABLE DEC .)
+    LAND            reduce using rule 46 (expression -> VARIABLE DEC .)
+    LOR             reduce using rule 46 (expression -> VARIABLE DEC .)
+    RPAREN          reduce using rule 46 (expression -> VARIABLE DEC .)
+    COMMA           reduce using rule 46 (expression -> VARIABLE DEC .)
+    RBRACKET        reduce using rule 46 (expression -> VARIABLE DEC .)
+
+
+state 58
+
+    (47) expression -> LPAREN expression . RPAREN
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    RPAREN          shift and go to state 82
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+    EQ              shift and go to state 46
+    NOT_EQ          shift and go to state 47
+    LT              shift and go to state 48
+    GT              shift and go to state 49
+    LTE             shift and go to state 50
+    GTE             shift and go to state 51
+    LAND            shift and go to state 52
+    LOR             shift and go to state 53
+
+
+state 59
+
+    (55) expression -> LBRACKET array_elements . RBRACKET
+
+    RBRACKET        shift and go to state 83
+
+
+state 60
+
+    (56) array_elements -> expression_list .
+    (58) expression_list -> expression_list . COMMA expression
+
+    RBRACKET        reduce using rule 56 (array_elements -> expression_list .)
+    COMMA           shift and go to state 84
+
+
+state 61
+
+    (57) array_elements -> empty .
+
+    RBRACKET        reduce using rule 57 (array_elements -> empty .)
+
+
+state 62
+
+    (59) expression_list -> expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    COMMA           reduce using rule 59 (expression_list -> expression .)
+    RBRACKET        reduce using rule 59 (expression_list -> expression .)
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+    EQ              shift and go to state 46
+    NOT_EQ          shift and go to state 47
+    LT              shift and go to state 48
+    GT              shift and go to state 49
+    LTE             shift and go to state 50
+    GTE             shift and go to state 51
+    LAND            shift and go to state 52
+    LOR             shift and go to state 53
+
+
+state 63
+
+    (16) if_statement -> IF LPAREN expression . RPAREN block
+    (17) if_statement -> IF LPAREN expression . RPAREN block ELSE block
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    RPAREN          shift and go to state 85
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+    EQ              shift and go to state 46
+    NOT_EQ          shift and go to state 47
+    LT              shift and go to state 48
+    GT              shift and go to state 49
+    LTE             shift and go to state 50
+    GTE             shift and go to state 51
+    LAND            shift and go to state 52
+    LOR             shift and go to state 53
+
+
+state 64
+
+    (19) class_definition -> CLASS ID LBRACE . class_body RBRACE
+    (20) class_body -> . class_body class_member
+    (21) class_body -> . class_member
+    (22) class_body -> . empty
+    (23) class_member -> . PUBLIC VARIABLE SEMI
+    (24) class_member -> . PRIVATE VARIABLE SEMI
+    (25) class_member -> . PROTECTED VARIABLE SEMI
+    (26) class_member -> . FUNCTION ID LPAREN RPAREN block
+    (60) empty -> .
+
+  ! shift/reduce conflict for PUBLIC resolved as shift
+  ! shift/reduce conflict for PRIVATE resolved as shift
+  ! shift/reduce conflict for PROTECTED resolved as shift
+  ! shift/reduce conflict for FUNCTION resolved as shift
+    PUBLIC          shift and go to state 89
+    PRIVATE         shift and go to state 90
+    PROTECTED       shift and go to state 91
+    FUNCTION        shift and go to state 92
+    RBRACE          reduce using rule 60 (empty -> .)
+
+  ! PUBLIC          [ reduce using rule 60 (empty -> .) ]
+  ! PRIVATE         [ reduce using rule 60 (empty -> .) ]
+  ! PROTECTED       [ reduce using rule 60 (empty -> .) ]
+  ! FUNCTION        [ reduce using rule 60 (empty -> .) ]
+
+    class_body                     shift and go to state 86
+    class_member                   shift and go to state 87
+    empty                          shift and go to state 88
+
+state 65
+
+    (27) while_statement -> WHILE LPAREN expression . RPAREN block
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    RPAREN          shift and go to state 93
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+    EQ              shift and go to state 46
+    NOT_EQ          shift and go to state 47
+    LT              shift and go to state 48
+    GT              shift and go to state 49
+    LTE             shift and go to state 50
+    GTE             shift and go to state 51
+    LAND            shift and go to state 52
+    LOR             shift and go to state 53
+
+
+state 66
+
+    (28) function_definition -> FUNCTION ID LPAREN . RPAREN block
+
+    RPAREN          shift and go to state 94
+
+
+state 67
+
+    (14) assignment -> VARIABLE EQUALS expression SEMI .
+
+    VARIABLE        reduce using rule 14 (assignment -> VARIABLE EQUALS expression SEMI .)
+    ECHO            reduce using rule 14 (assignment -> VARIABLE EQUALS expression SEMI .)
+    IF              reduce using rule 14 (assignment -> VARIABLE EQUALS expression SEMI .)
+    CLASS           reduce using rule 14 (assignment -> VARIABLE EQUALS expression SEMI .)
+    PHP_OPEN        reduce using rule 14 (assignment -> VARIABLE EQUALS expression SEMI .)
+    PHP_CLOSE       reduce using rule 14 (assignment -> VARIABLE EQUALS expression SEMI .)
+    WHILE           reduce using rule 14 (assignment -> VARIABLE EQUALS expression SEMI .)
+    FUNCTION        reduce using rule 14 (assignment -> VARIABLE EQUALS expression SEMI .)
+    $end            reduce using rule 14 (assignment -> VARIABLE EQUALS expression SEMI .)
+    RBRACE          reduce using rule 14 (assignment -> VARIABLE EQUALS expression SEMI .)
+
+
+state 68
+
+    (29) expression -> expression PLUS expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            reduce using rule 29 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 29 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 29 (expression -> expression PLUS expression .)
+    EQ              reduce using rule 29 (expression -> expression PLUS expression .)
+    NOT_EQ          reduce using rule 29 (expression -> expression PLUS expression .)
+    LT              reduce using rule 29 (expression -> expression PLUS expression .)
+    GT              reduce using rule 29 (expression -> expression PLUS expression .)
+    LTE             reduce using rule 29 (expression -> expression PLUS expression .)
+    GTE             reduce using rule 29 (expression -> expression PLUS expression .)
+    LAND            reduce using rule 29 (expression -> expression PLUS expression .)
+    LOR             reduce using rule 29 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 29 (expression -> expression PLUS expression .)
+    COMMA           reduce using rule 29 (expression -> expression PLUS expression .)
+    RBRACKET        reduce using rule 29 (expression -> expression PLUS expression .)
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+
+  ! TIMES           [ reduce using rule 29 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 29 (expression -> expression PLUS expression .) ]
+  ! MODULO          [ reduce using rule 29 (expression -> expression PLUS expression .) ]
+  ! POW             [ reduce using rule 29 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 40 ]
+  ! MINUS           [ shift and go to state 41 ]
+  ! EQ              [ shift and go to state 46 ]
+  ! NOT_EQ          [ shift and go to state 47 ]
+  ! LT              [ shift and go to state 48 ]
+  ! GT              [ shift and go to state 49 ]
+  ! LTE             [ shift and go to state 50 ]
+  ! GTE             [ shift and go to state 51 ]
+  ! LAND            [ shift and go to state 52 ]
+  ! LOR             [ shift and go to state 53 ]
+
+
+state 69
+
+    (30) expression -> expression MINUS expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            reduce using rule 30 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 30 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 30 (expression -> expression MINUS expression .)
+    EQ              reduce using rule 30 (expression -> expression MINUS expression .)
+    NOT_EQ          reduce using rule 30 (expression -> expression MINUS expression .)
+    LT              reduce using rule 30 (expression -> expression MINUS expression .)
+    GT              reduce using rule 30 (expression -> expression MINUS expression .)
+    LTE             reduce using rule 30 (expression -> expression MINUS expression .)
+    GTE             reduce using rule 30 (expression -> expression MINUS expression .)
+    LAND            reduce using rule 30 (expression -> expression MINUS expression .)
+    LOR             reduce using rule 30 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 30 (expression -> expression MINUS expression .)
+    COMMA           reduce using rule 30 (expression -> expression MINUS expression .)
+    RBRACKET        reduce using rule 30 (expression -> expression MINUS expression .)
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+
+  ! TIMES           [ reduce using rule 30 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 30 (expression -> expression MINUS expression .) ]
+  ! MODULO          [ reduce using rule 30 (expression -> expression MINUS expression .) ]
+  ! POW             [ reduce using rule 30 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 40 ]
+  ! MINUS           [ shift and go to state 41 ]
+  ! EQ              [ shift and go to state 46 ]
+  ! NOT_EQ          [ shift and go to state 47 ]
+  ! LT              [ shift and go to state 48 ]
+  ! GT              [ shift and go to state 49 ]
+  ! LTE             [ shift and go to state 50 ]
+  ! GTE             [ shift and go to state 51 ]
+  ! LAND            [ shift and go to state 52 ]
+  ! LOR             [ shift and go to state 53 ]
+
+
+state 70
+
+    (31) expression -> expression TIMES expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            reduce using rule 31 (expression -> expression TIMES expression .)
+    PLUS            reduce using rule 31 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 31 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 31 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 31 (expression -> expression TIMES expression .)
+    MODULO          reduce using rule 31 (expression -> expression TIMES expression .)
+    EQ              reduce using rule 31 (expression -> expression TIMES expression .)
+    NOT_EQ          reduce using rule 31 (expression -> expression TIMES expression .)
+    LT              reduce using rule 31 (expression -> expression TIMES expression .)
+    GT              reduce using rule 31 (expression -> expression TIMES expression .)
+    LTE             reduce using rule 31 (expression -> expression TIMES expression .)
+    GTE             reduce using rule 31 (expression -> expression TIMES expression .)
+    LAND            reduce using rule 31 (expression -> expression TIMES expression .)
+    LOR             reduce using rule 31 (expression -> expression TIMES expression .)
+    RPAREN          reduce using rule 31 (expression -> expression TIMES expression .)
+    COMMA           reduce using rule 31 (expression -> expression TIMES expression .)
+    RBRACKET        reduce using rule 31 (expression -> expression TIMES expression .)
+    POW             shift and go to state 45
+
+  ! POW             [ reduce using rule 31 (expression -> expression TIMES expression .) ]
+  ! PLUS            [ shift and go to state 40 ]
+  ! MINUS           [ shift and go to state 41 ]
+  ! TIMES           [ shift and go to state 42 ]
+  ! DIVIDE          [ shift and go to state 43 ]
+  ! MODULO          [ shift and go to state 44 ]
+  ! EQ              [ shift and go to state 46 ]
+  ! NOT_EQ          [ shift and go to state 47 ]
+  ! LT              [ shift and go to state 48 ]
+  ! GT              [ shift and go to state 49 ]
+  ! LTE             [ shift and go to state 50 ]
+  ! GTE             [ shift and go to state 51 ]
+  ! LAND            [ shift and go to state 52 ]
+  ! LOR             [ shift and go to state 53 ]
+
+
+state 71
+
+    (32) expression -> expression DIVIDE expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            reduce using rule 32 (expression -> expression DIVIDE expression .)
+    PLUS            reduce using rule 32 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 32 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 32 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 32 (expression -> expression DIVIDE expression .)
+    MODULO          reduce using rule 32 (expression -> expression DIVIDE expression .)
+    EQ              reduce using rule 32 (expression -> expression DIVIDE expression .)
+    NOT_EQ          reduce using rule 32 (expression -> expression DIVIDE expression .)
+    LT              reduce using rule 32 (expression -> expression DIVIDE expression .)
+    GT              reduce using rule 32 (expression -> expression DIVIDE expression .)
+    LTE             reduce using rule 32 (expression -> expression DIVIDE expression .)
+    GTE             reduce using rule 32 (expression -> expression DIVIDE expression .)
+    LAND            reduce using rule 32 (expression -> expression DIVIDE expression .)
+    LOR             reduce using rule 32 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 32 (expression -> expression DIVIDE expression .)
+    COMMA           reduce using rule 32 (expression -> expression DIVIDE expression .)
+    RBRACKET        reduce using rule 32 (expression -> expression DIVIDE expression .)
+    POW             shift and go to state 45
+
+  ! POW             [ reduce using rule 32 (expression -> expression DIVIDE expression .) ]
+  ! PLUS            [ shift and go to state 40 ]
+  ! MINUS           [ shift and go to state 41 ]
+  ! TIMES           [ shift and go to state 42 ]
+  ! DIVIDE          [ shift and go to state 43 ]
+  ! MODULO          [ shift and go to state 44 ]
+  ! EQ              [ shift and go to state 46 ]
+  ! NOT_EQ          [ shift and go to state 47 ]
+  ! LT              [ shift and go to state 48 ]
+  ! GT              [ shift and go to state 49 ]
+  ! LTE             [ shift and go to state 50 ]
+  ! GTE             [ shift and go to state 51 ]
+  ! LAND            [ shift and go to state 52 ]
+  ! LOR             [ shift and go to state 53 ]
+
+
+state 72
+
+    (33) expression -> expression MODULO expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            reduce using rule 33 (expression -> expression MODULO expression .)
+    PLUS            reduce using rule 33 (expression -> expression MODULO expression .)
+    MINUS           reduce using rule 33 (expression -> expression MODULO expression .)
+    TIMES           reduce using rule 33 (expression -> expression MODULO expression .)
+    DIVIDE          reduce using rule 33 (expression -> expression MODULO expression .)
+    MODULO          reduce using rule 33 (expression -> expression MODULO expression .)
+    EQ              reduce using rule 33 (expression -> expression MODULO expression .)
+    NOT_EQ          reduce using rule 33 (expression -> expression MODULO expression .)
+    LT              reduce using rule 33 (expression -> expression MODULO expression .)
+    GT              reduce using rule 33 (expression -> expression MODULO expression .)
+    LTE             reduce using rule 33 (expression -> expression MODULO expression .)
+    GTE             reduce using rule 33 (expression -> expression MODULO expression .)
+    LAND            reduce using rule 33 (expression -> expression MODULO expression .)
+    LOR             reduce using rule 33 (expression -> expression MODULO expression .)
+    RPAREN          reduce using rule 33 (expression -> expression MODULO expression .)
+    COMMA           reduce using rule 33 (expression -> expression MODULO expression .)
+    RBRACKET        reduce using rule 33 (expression -> expression MODULO expression .)
+    POW             shift and go to state 45
+
+  ! POW             [ reduce using rule 33 (expression -> expression MODULO expression .) ]
+  ! PLUS            [ shift and go to state 40 ]
+  ! MINUS           [ shift and go to state 41 ]
+  ! TIMES           [ shift and go to state 42 ]
+  ! DIVIDE          [ shift and go to state 43 ]
+  ! MODULO          [ shift and go to state 44 ]
+  ! EQ              [ shift and go to state 46 ]
+  ! NOT_EQ          [ shift and go to state 47 ]
+  ! LT              [ shift and go to state 48 ]
+  ! GT              [ shift and go to state 49 ]
+  ! LTE             [ shift and go to state 50 ]
+  ! GTE             [ shift and go to state 51 ]
+  ! LAND            [ shift and go to state 52 ]
+  ! LOR             [ shift and go to state 53 ]
+
+
+state 73
+
+    (34) expression -> expression POW expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            reduce using rule 34 (expression -> expression POW expression .)
+    PLUS            reduce using rule 34 (expression -> expression POW expression .)
+    MINUS           reduce using rule 34 (expression -> expression POW expression .)
+    TIMES           reduce using rule 34 (expression -> expression POW expression .)
+    DIVIDE          reduce using rule 34 (expression -> expression POW expression .)
+    MODULO          reduce using rule 34 (expression -> expression POW expression .)
+    EQ              reduce using rule 34 (expression -> expression POW expression .)
+    NOT_EQ          reduce using rule 34 (expression -> expression POW expression .)
+    LT              reduce using rule 34 (expression -> expression POW expression .)
+    GT              reduce using rule 34 (expression -> expression POW expression .)
+    LTE             reduce using rule 34 (expression -> expression POW expression .)
+    GTE             reduce using rule 34 (expression -> expression POW expression .)
+    LAND            reduce using rule 34 (expression -> expression POW expression .)
+    LOR             reduce using rule 34 (expression -> expression POW expression .)
+    RPAREN          reduce using rule 34 (expression -> expression POW expression .)
+    COMMA           reduce using rule 34 (expression -> expression POW expression .)
+    RBRACKET        reduce using rule 34 (expression -> expression POW expression .)
+    POW             shift and go to state 45
+
+  ! POW             [ reduce using rule 34 (expression -> expression POW expression .) ]
+  ! PLUS            [ shift and go to state 40 ]
+  ! MINUS           [ shift and go to state 41 ]
+  ! TIMES           [ shift and go to state 42 ]
+  ! DIVIDE          [ shift and go to state 43 ]
+  ! MODULO          [ shift and go to state 44 ]
+  ! EQ              [ shift and go to state 46 ]
+  ! NOT_EQ          [ shift and go to state 47 ]
+  ! LT              [ shift and go to state 48 ]
+  ! GT              [ shift and go to state 49 ]
+  ! LTE             [ shift and go to state 50 ]
+  ! GTE             [ shift and go to state 51 ]
+  ! LAND            [ shift and go to state 52 ]
+  ! LOR             [ shift and go to state 53 ]
+
+
+state 74
+
+    (35) expression -> expression EQ expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            reduce using rule 35 (expression -> expression EQ expression .)
+    EQ              reduce using rule 35 (expression -> expression EQ expression .)
+    NOT_EQ          reduce using rule 35 (expression -> expression EQ expression .)
+    LT              reduce using rule 35 (expression -> expression EQ expression .)
+    GT              reduce using rule 35 (expression -> expression EQ expression .)
+    LTE             reduce using rule 35 (expression -> expression EQ expression .)
+    GTE             reduce using rule 35 (expression -> expression EQ expression .)
+    LAND            reduce using rule 35 (expression -> expression EQ expression .)
+    LOR             reduce using rule 35 (expression -> expression EQ expression .)
+    RPAREN          reduce using rule 35 (expression -> expression EQ expression .)
+    COMMA           reduce using rule 35 (expression -> expression EQ expression .)
+    RBRACKET        reduce using rule 35 (expression -> expression EQ expression .)
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+
+  ! PLUS            [ reduce using rule 35 (expression -> expression EQ expression .) ]
+  ! MINUS           [ reduce using rule 35 (expression -> expression EQ expression .) ]
+  ! TIMES           [ reduce using rule 35 (expression -> expression EQ expression .) ]
+  ! DIVIDE          [ reduce using rule 35 (expression -> expression EQ expression .) ]
+  ! MODULO          [ reduce using rule 35 (expression -> expression EQ expression .) ]
+  ! POW             [ reduce using rule 35 (expression -> expression EQ expression .) ]
+  ! EQ              [ shift and go to state 46 ]
+  ! NOT_EQ          [ shift and go to state 47 ]
+  ! LT              [ shift and go to state 48 ]
+  ! GT              [ shift and go to state 49 ]
+  ! LTE             [ shift and go to state 50 ]
+  ! GTE             [ shift and go to state 51 ]
+  ! LAND            [ shift and go to state 52 ]
+  ! LOR             [ shift and go to state 53 ]
+
+
+state 75
+
+    (36) expression -> expression NOT_EQ expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            reduce using rule 36 (expression -> expression NOT_EQ expression .)
+    EQ              reduce using rule 36 (expression -> expression NOT_EQ expression .)
+    NOT_EQ          reduce using rule 36 (expression -> expression NOT_EQ expression .)
+    LT              reduce using rule 36 (expression -> expression NOT_EQ expression .)
+    GT              reduce using rule 36 (expression -> expression NOT_EQ expression .)
+    LTE             reduce using rule 36 (expression -> expression NOT_EQ expression .)
+    GTE             reduce using rule 36 (expression -> expression NOT_EQ expression .)
+    LAND            reduce using rule 36 (expression -> expression NOT_EQ expression .)
+    LOR             reduce using rule 36 (expression -> expression NOT_EQ expression .)
+    RPAREN          reduce using rule 36 (expression -> expression NOT_EQ expression .)
+    COMMA           reduce using rule 36 (expression -> expression NOT_EQ expression .)
+    RBRACKET        reduce using rule 36 (expression -> expression NOT_EQ expression .)
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+
+  ! PLUS            [ reduce using rule 36 (expression -> expression NOT_EQ expression .) ]
+  ! MINUS           [ reduce using rule 36 (expression -> expression NOT_EQ expression .) ]
+  ! TIMES           [ reduce using rule 36 (expression -> expression NOT_EQ expression .) ]
+  ! DIVIDE          [ reduce using rule 36 (expression -> expression NOT_EQ expression .) ]
+  ! MODULO          [ reduce using rule 36 (expression -> expression NOT_EQ expression .) ]
+  ! POW             [ reduce using rule 36 (expression -> expression NOT_EQ expression .) ]
+  ! EQ              [ shift and go to state 46 ]
+  ! NOT_EQ          [ shift and go to state 47 ]
+  ! LT              [ shift and go to state 48 ]
+  ! GT              [ shift and go to state 49 ]
+  ! LTE             [ shift and go to state 50 ]
+  ! GTE             [ shift and go to state 51 ]
+  ! LAND            [ shift and go to state 52 ]
+  ! LOR             [ shift and go to state 53 ]
+
+
+state 76
+
+    (37) expression -> expression LT expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            reduce using rule 37 (expression -> expression LT expression .)
+    EQ              reduce using rule 37 (expression -> expression LT expression .)
+    NOT_EQ          reduce using rule 37 (expression -> expression LT expression .)
+    LT              reduce using rule 37 (expression -> expression LT expression .)
+    GT              reduce using rule 37 (expression -> expression LT expression .)
+    LTE             reduce using rule 37 (expression -> expression LT expression .)
+    GTE             reduce using rule 37 (expression -> expression LT expression .)
+    LAND            reduce using rule 37 (expression -> expression LT expression .)
+    LOR             reduce using rule 37 (expression -> expression LT expression .)
+    RPAREN          reduce using rule 37 (expression -> expression LT expression .)
+    COMMA           reduce using rule 37 (expression -> expression LT expression .)
+    RBRACKET        reduce using rule 37 (expression -> expression LT expression .)
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+
+  ! PLUS            [ reduce using rule 37 (expression -> expression LT expression .) ]
+  ! MINUS           [ reduce using rule 37 (expression -> expression LT expression .) ]
+  ! TIMES           [ reduce using rule 37 (expression -> expression LT expression .) ]
+  ! DIVIDE          [ reduce using rule 37 (expression -> expression LT expression .) ]
+  ! MODULO          [ reduce using rule 37 (expression -> expression LT expression .) ]
+  ! POW             [ reduce using rule 37 (expression -> expression LT expression .) ]
+  ! EQ              [ shift and go to state 46 ]
+  ! NOT_EQ          [ shift and go to state 47 ]
+  ! LT              [ shift and go to state 48 ]
+  ! GT              [ shift and go to state 49 ]
+  ! LTE             [ shift and go to state 50 ]
+  ! GTE             [ shift and go to state 51 ]
+  ! LAND            [ shift and go to state 52 ]
+  ! LOR             [ shift and go to state 53 ]
+
+
+state 77
+
+    (38) expression -> expression GT expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            reduce using rule 38 (expression -> expression GT expression .)
+    EQ              reduce using rule 38 (expression -> expression GT expression .)
+    NOT_EQ          reduce using rule 38 (expression -> expression GT expression .)
+    LT              reduce using rule 38 (expression -> expression GT expression .)
+    GT              reduce using rule 38 (expression -> expression GT expression .)
+    LTE             reduce using rule 38 (expression -> expression GT expression .)
+    GTE             reduce using rule 38 (expression -> expression GT expression .)
+    LAND            reduce using rule 38 (expression -> expression GT expression .)
+    LOR             reduce using rule 38 (expression -> expression GT expression .)
+    RPAREN          reduce using rule 38 (expression -> expression GT expression .)
+    COMMA           reduce using rule 38 (expression -> expression GT expression .)
+    RBRACKET        reduce using rule 38 (expression -> expression GT expression .)
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+
+  ! PLUS            [ reduce using rule 38 (expression -> expression GT expression .) ]
+  ! MINUS           [ reduce using rule 38 (expression -> expression GT expression .) ]
+  ! TIMES           [ reduce using rule 38 (expression -> expression GT expression .) ]
+  ! DIVIDE          [ reduce using rule 38 (expression -> expression GT expression .) ]
+  ! MODULO          [ reduce using rule 38 (expression -> expression GT expression .) ]
+  ! POW             [ reduce using rule 38 (expression -> expression GT expression .) ]
+  ! EQ              [ shift and go to state 46 ]
+  ! NOT_EQ          [ shift and go to state 47 ]
+  ! LT              [ shift and go to state 48 ]
+  ! GT              [ shift and go to state 49 ]
+  ! LTE             [ shift and go to state 50 ]
+  ! GTE             [ shift and go to state 51 ]
+  ! LAND            [ shift and go to state 52 ]
+  ! LOR             [ shift and go to state 53 ]
+
+
+state 78
+
+    (39) expression -> expression LTE expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            reduce using rule 39 (expression -> expression LTE expression .)
+    EQ              reduce using rule 39 (expression -> expression LTE expression .)
+    NOT_EQ          reduce using rule 39 (expression -> expression LTE expression .)
+    LT              reduce using rule 39 (expression -> expression LTE expression .)
+    GT              reduce using rule 39 (expression -> expression LTE expression .)
+    LTE             reduce using rule 39 (expression -> expression LTE expression .)
+    GTE             reduce using rule 39 (expression -> expression LTE expression .)
+    LAND            reduce using rule 39 (expression -> expression LTE expression .)
+    LOR             reduce using rule 39 (expression -> expression LTE expression .)
+    RPAREN          reduce using rule 39 (expression -> expression LTE expression .)
+    COMMA           reduce using rule 39 (expression -> expression LTE expression .)
+    RBRACKET        reduce using rule 39 (expression -> expression LTE expression .)
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+
+  ! PLUS            [ reduce using rule 39 (expression -> expression LTE expression .) ]
+  ! MINUS           [ reduce using rule 39 (expression -> expression LTE expression .) ]
+  ! TIMES           [ reduce using rule 39 (expression -> expression LTE expression .) ]
+  ! DIVIDE          [ reduce using rule 39 (expression -> expression LTE expression .) ]
+  ! MODULO          [ reduce using rule 39 (expression -> expression LTE expression .) ]
+  ! POW             [ reduce using rule 39 (expression -> expression LTE expression .) ]
+  ! EQ              [ shift and go to state 46 ]
+  ! NOT_EQ          [ shift and go to state 47 ]
+  ! LT              [ shift and go to state 48 ]
+  ! GT              [ shift and go to state 49 ]
+  ! LTE             [ shift and go to state 50 ]
+  ! GTE             [ shift and go to state 51 ]
+  ! LAND            [ shift and go to state 52 ]
+  ! LOR             [ shift and go to state 53 ]
+
+
+state 79
+
+    (40) expression -> expression GTE expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            reduce using rule 40 (expression -> expression GTE expression .)
+    EQ              reduce using rule 40 (expression -> expression GTE expression .)
+    NOT_EQ          reduce using rule 40 (expression -> expression GTE expression .)
+    LT              reduce using rule 40 (expression -> expression GTE expression .)
+    GT              reduce using rule 40 (expression -> expression GTE expression .)
+    LTE             reduce using rule 40 (expression -> expression GTE expression .)
+    GTE             reduce using rule 40 (expression -> expression GTE expression .)
+    LAND            reduce using rule 40 (expression -> expression GTE expression .)
+    LOR             reduce using rule 40 (expression -> expression GTE expression .)
+    RPAREN          reduce using rule 40 (expression -> expression GTE expression .)
+    COMMA           reduce using rule 40 (expression -> expression GTE expression .)
+    RBRACKET        reduce using rule 40 (expression -> expression GTE expression .)
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+
+  ! PLUS            [ reduce using rule 40 (expression -> expression GTE expression .) ]
+  ! MINUS           [ reduce using rule 40 (expression -> expression GTE expression .) ]
+  ! TIMES           [ reduce using rule 40 (expression -> expression GTE expression .) ]
+  ! DIVIDE          [ reduce using rule 40 (expression -> expression GTE expression .) ]
+  ! MODULO          [ reduce using rule 40 (expression -> expression GTE expression .) ]
+  ! POW             [ reduce using rule 40 (expression -> expression GTE expression .) ]
+  ! EQ              [ shift and go to state 46 ]
+  ! NOT_EQ          [ shift and go to state 47 ]
+  ! LT              [ shift and go to state 48 ]
+  ! GT              [ shift and go to state 49 ]
+  ! LTE             [ shift and go to state 50 ]
+  ! GTE             [ shift and go to state 51 ]
+  ! LAND            [ shift and go to state 52 ]
+  ! LOR             [ shift and go to state 53 ]
+
+
+state 80
+
+    (41) expression -> expression LAND expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            reduce using rule 41 (expression -> expression LAND expression .)
+    LAND            reduce using rule 41 (expression -> expression LAND expression .)
+    LOR             reduce using rule 41 (expression -> expression LAND expression .)
+    RPAREN          reduce using rule 41 (expression -> expression LAND expression .)
+    COMMA           reduce using rule 41 (expression -> expression LAND expression .)
+    RBRACKET        reduce using rule 41 (expression -> expression LAND expression .)
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+    EQ              shift and go to state 46
+    NOT_EQ          shift and go to state 47
+    LT              shift and go to state 48
+    GT              shift and go to state 49
+    LTE             shift and go to state 50
+    GTE             shift and go to state 51
+
+  ! PLUS            [ reduce using rule 41 (expression -> expression LAND expression .) ]
+  ! MINUS           [ reduce using rule 41 (expression -> expression LAND expression .) ]
+  ! TIMES           [ reduce using rule 41 (expression -> expression LAND expression .) ]
+  ! DIVIDE          [ reduce using rule 41 (expression -> expression LAND expression .) ]
+  ! MODULO          [ reduce using rule 41 (expression -> expression LAND expression .) ]
+  ! POW             [ reduce using rule 41 (expression -> expression LAND expression .) ]
+  ! EQ              [ reduce using rule 41 (expression -> expression LAND expression .) ]
+  ! NOT_EQ          [ reduce using rule 41 (expression -> expression LAND expression .) ]
+  ! LT              [ reduce using rule 41 (expression -> expression LAND expression .) ]
+  ! GT              [ reduce using rule 41 (expression -> expression LAND expression .) ]
+  ! LTE             [ reduce using rule 41 (expression -> expression LAND expression .) ]
+  ! GTE             [ reduce using rule 41 (expression -> expression LAND expression .) ]
+  ! LAND            [ shift and go to state 52 ]
+  ! LOR             [ shift and go to state 53 ]
+
+
+state 81
+
+    (42) expression -> expression LOR expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    SEMI            reduce using rule 42 (expression -> expression LOR expression .)
+    LOR             reduce using rule 42 (expression -> expression LOR expression .)
+    RPAREN          reduce using rule 42 (expression -> expression LOR expression .)
+    COMMA           reduce using rule 42 (expression -> expression LOR expression .)
+    RBRACKET        reduce using rule 42 (expression -> expression LOR expression .)
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+    EQ              shift and go to state 46
+    NOT_EQ          shift and go to state 47
+    LT              shift and go to state 48
+    GT              shift and go to state 49
+    LTE             shift and go to state 50
+    GTE             shift and go to state 51
+    LAND            shift and go to state 52
+
+  ! PLUS            [ reduce using rule 42 (expression -> expression LOR expression .) ]
+  ! MINUS           [ reduce using rule 42 (expression -> expression LOR expression .) ]
+  ! TIMES           [ reduce using rule 42 (expression -> expression LOR expression .) ]
+  ! DIVIDE          [ reduce using rule 42 (expression -> expression LOR expression .) ]
+  ! MODULO          [ reduce using rule 42 (expression -> expression LOR expression .) ]
+  ! POW             [ reduce using rule 42 (expression -> expression LOR expression .) ]
+  ! EQ              [ reduce using rule 42 (expression -> expression LOR expression .) ]
+  ! NOT_EQ          [ reduce using rule 42 (expression -> expression LOR expression .) ]
+  ! LT              [ reduce using rule 42 (expression -> expression LOR expression .) ]
+  ! GT              [ reduce using rule 42 (expression -> expression LOR expression .) ]
+  ! LTE             [ reduce using rule 42 (expression -> expression LOR expression .) ]
+  ! GTE             [ reduce using rule 42 (expression -> expression LOR expression .) ]
+  ! LAND            [ reduce using rule 42 (expression -> expression LOR expression .) ]
+  ! LOR             [ shift and go to state 53 ]
+
+
+state 82
+
+    (47) expression -> LPAREN expression RPAREN .
+
+    SEMI            reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    MODULO          reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    POW             reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    EQ              reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    NOT_EQ          reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    LT              reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    GT              reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    LTE             reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    GTE             reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    LAND            reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    LOR             reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    COMMA           reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+    RBRACKET        reduce using rule 47 (expression -> LPAREN expression RPAREN .)
+
+
+state 83
+
+    (55) expression -> LBRACKET array_elements RBRACKET .
+
+    SEMI            reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    PLUS            reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    MINUS           reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    TIMES           reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    DIVIDE          reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    MODULO          reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    POW             reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    EQ              reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    NOT_EQ          reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    LT              reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    GT              reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    LTE             reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    GTE             reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    LAND            reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    LOR             reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    RPAREN          reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    COMMA           reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+    RBRACKET        reduce using rule 55 (expression -> LBRACKET array_elements RBRACKET .)
+
+
+state 84
+
+    (58) expression_list -> expression_list COMMA . expression
+    (29) expression -> . expression PLUS expression
+    (30) expression -> . expression MINUS expression
+    (31) expression -> . expression TIMES expression
+    (32) expression -> . expression DIVIDE expression
+    (33) expression -> . expression MODULO expression
+    (34) expression -> . expression POW expression
+    (35) expression -> . expression EQ expression
+    (36) expression -> . expression NOT_EQ expression
+    (37) expression -> . expression LT expression
+    (38) expression -> . expression GT expression
+    (39) expression -> . expression LTE expression
+    (40) expression -> . expression GTE expression
+    (41) expression -> . expression LAND expression
+    (42) expression -> . expression LOR expression
+    (43) expression -> . MINUS expression
+    (44) expression -> . LNOT expression
+    (45) expression -> . VARIABLE INC
+    (46) expression -> . VARIABLE DEC
+    (47) expression -> . LPAREN expression RPAREN
+    (48) expression -> . NUMBER
+    (49) expression -> . FLOAT
+    (50) expression -> . STRING
+    (51) expression -> . TRUE
+    (52) expression -> . FALSE
+    (53) expression -> . NULL
+    (54) expression -> . VARIABLE
+    (55) expression -> . LBRACKET array_elements RBRACKET
+
+    MINUS           shift and go to state 23
+    LNOT            shift and go to state 24
+    VARIABLE        shift and go to state 25
+    LPAREN          shift and go to state 26
+    NUMBER          shift and go to state 27
+    FLOAT           shift and go to state 28
+    STRING          shift and go to state 29
+    TRUE            shift and go to state 30
+    FALSE           shift and go to state 31
+    NULL            shift and go to state 32
+    LBRACKET        shift and go to state 33
+
+    expression                     shift and go to state 95
+
+state 85
+
+    (16) if_statement -> IF LPAREN expression RPAREN . block
+    (17) if_statement -> IF LPAREN expression RPAREN . block ELSE block
+    (18) block -> . LBRACE statement_list RBRACE
+
+    LBRACE          shift and go to state 97
+
+    block                          shift and go to state 96
+
+state 86
+
+    (19) class_definition -> CLASS ID LBRACE class_body . RBRACE
+    (20) class_body -> class_body . class_member
+    (23) class_member -> . PUBLIC VARIABLE SEMI
+    (24) class_member -> . PRIVATE VARIABLE SEMI
+    (25) class_member -> . PROTECTED VARIABLE SEMI
+    (26) class_member -> . FUNCTION ID LPAREN RPAREN block
+
+    RBRACE          shift and go to state 98
+    PUBLIC          shift and go to state 89
+    PRIVATE         shift and go to state 90
+    PROTECTED       shift and go to state 91
+    FUNCTION        shift and go to state 92
+
+    class_member                   shift and go to state 99
+
+state 87
+
+    (21) class_body -> class_member .
+
+    RBRACE          reduce using rule 21 (class_body -> class_member .)
+    PUBLIC          reduce using rule 21 (class_body -> class_member .)
+    PRIVATE         reduce using rule 21 (class_body -> class_member .)
+    PROTECTED       reduce using rule 21 (class_body -> class_member .)
+    FUNCTION        reduce using rule 21 (class_body -> class_member .)
+
+
+state 88
+
+    (22) class_body -> empty .
+
+    RBRACE          reduce using rule 22 (class_body -> empty .)
+    PUBLIC          reduce using rule 22 (class_body -> empty .)
+    PRIVATE         reduce using rule 22 (class_body -> empty .)
+    PROTECTED       reduce using rule 22 (class_body -> empty .)
+    FUNCTION        reduce using rule 22 (class_body -> empty .)
+
+
+state 89
+
+    (23) class_member -> PUBLIC . VARIABLE SEMI
+
+    VARIABLE        shift and go to state 100
+
+
+state 90
+
+    (24) class_member -> PRIVATE . VARIABLE SEMI
+
+    VARIABLE        shift and go to state 101
+
+
+state 91
+
+    (25) class_member -> PROTECTED . VARIABLE SEMI
+
+    VARIABLE        shift and go to state 102
+
+
+state 92
+
+    (26) class_member -> FUNCTION . ID LPAREN RPAREN block
+
+    ID              shift and go to state 103
+
+
+state 93
+
+    (27) while_statement -> WHILE LPAREN expression RPAREN . block
+    (18) block -> . LBRACE statement_list RBRACE
+
+    LBRACE          shift and go to state 97
+
+    block                          shift and go to state 104
+
+state 94
+
+    (28) function_definition -> FUNCTION ID LPAREN RPAREN . block
+    (18) block -> . LBRACE statement_list RBRACE
+
+    LBRACE          shift and go to state 97
+
+    block                          shift and go to state 105
+
+state 95
+
+    (58) expression_list -> expression_list COMMA expression .
+    (29) expression -> expression . PLUS expression
+    (30) expression -> expression . MINUS expression
+    (31) expression -> expression . TIMES expression
+    (32) expression -> expression . DIVIDE expression
+    (33) expression -> expression . MODULO expression
+    (34) expression -> expression . POW expression
+    (35) expression -> expression . EQ expression
+    (36) expression -> expression . NOT_EQ expression
+    (37) expression -> expression . LT expression
+    (38) expression -> expression . GT expression
+    (39) expression -> expression . LTE expression
+    (40) expression -> expression . GTE expression
+    (41) expression -> expression . LAND expression
+    (42) expression -> expression . LOR expression
+
+    COMMA           reduce using rule 58 (expression_list -> expression_list COMMA expression .)
+    RBRACKET        reduce using rule 58 (expression_list -> expression_list COMMA expression .)
+    PLUS            shift and go to state 40
+    MINUS           shift and go to state 41
+    TIMES           shift and go to state 42
+    DIVIDE          shift and go to state 43
+    MODULO          shift and go to state 44
+    POW             shift and go to state 45
+    EQ              shift and go to state 46
+    NOT_EQ          shift and go to state 47
+    LT              shift and go to state 48
+    GT              shift and go to state 49
+    LTE             shift and go to state 50
+    GTE             shift and go to state 51
+    LAND            shift and go to state 52
+    LOR             shift and go to state 53
+
+
+state 96
+
+    (16) if_statement -> IF LPAREN expression RPAREN block .
+    (17) if_statement -> IF LPAREN expression RPAREN block . ELSE block
+
+    VARIABLE        reduce using rule 16 (if_statement -> IF LPAREN expression RPAREN block .)
+    ECHO            reduce using rule 16 (if_statement -> IF LPAREN expression RPAREN block .)
+    IF              reduce using rule 16 (if_statement -> IF LPAREN expression RPAREN block .)
+    CLASS           reduce using rule 16 (if_statement -> IF LPAREN expression RPAREN block .)
+    PHP_OPEN        reduce using rule 16 (if_statement -> IF LPAREN expression RPAREN block .)
+    PHP_CLOSE       reduce using rule 16 (if_statement -> IF LPAREN expression RPAREN block .)
+    WHILE           reduce using rule 16 (if_statement -> IF LPAREN expression RPAREN block .)
+    FUNCTION        reduce using rule 16 (if_statement -> IF LPAREN expression RPAREN block .)
+    $end            reduce using rule 16 (if_statement -> IF LPAREN expression RPAREN block .)
+    RBRACE          reduce using rule 16 (if_statement -> IF LPAREN expression RPAREN block .)
+    ELSE            shift and go to state 106
+
+
+state 97
+
+    (18) block -> LBRACE . statement_list RBRACE
+    (2) statement_list -> . statement_list statement
+    (3) statement_list -> . statement
+    (4) statement -> . assignment
+    (5) statement -> . print_statement
+    (6) statement -> . if_statement
+    (7) statement -> . class_definition
+    (8) statement -> . php_open
+    (9) statement -> . php_close
+    (10) statement -> . while_statement
+    (11) statement -> . function_definition
+    (14) assignment -> . VARIABLE EQUALS expression SEMI
+    (15) print_statement -> . ECHO expression SEMI
+    (16) if_statement -> . IF LPAREN expression RPAREN block
+    (17) if_statement -> . IF LPAREN expression RPAREN block ELSE block
+    (19) class_definition -> . CLASS ID LBRACE class_body RBRACE
+    (12) php_open -> . PHP_OPEN
+    (13) php_close -> . PHP_CLOSE
+    (27) while_statement -> . WHILE LPAREN expression RPAREN block
+    (28) function_definition -> . FUNCTION ID LPAREN RPAREN block
+
+    VARIABLE        shift and go to state 12
+    ECHO            shift and go to state 13
+    IF              shift and go to state 14
+    CLASS           shift and go to state 15
+    PHP_OPEN        shift and go to state 16
+    PHP_CLOSE       shift and go to state 17
+    WHILE           shift and go to state 18
+    FUNCTION        shift and go to state 19
+
+    statement_list                 shift and go to state 107
+    statement                      shift and go to state 3
+    assignment                     shift and go to state 4
+    print_statement                shift and go to state 5
+    if_statement                   shift and go to state 6
+    class_definition               shift and go to state 7
+    php_open                       shift and go to state 8
+    php_close                      shift and go to state 9
+    while_statement                shift and go to state 10
+    function_definition            shift and go to state 11
+
+state 98
+
+    (19) class_definition -> CLASS ID LBRACE class_body RBRACE .
+
+    VARIABLE        reduce using rule 19 (class_definition -> CLASS ID LBRACE class_body RBRACE .)
+    ECHO            reduce using rule 19 (class_definition -> CLASS ID LBRACE class_body RBRACE .)
+    IF              reduce using rule 19 (class_definition -> CLASS ID LBRACE class_body RBRACE .)
+    CLASS           reduce using rule 19 (class_definition -> CLASS ID LBRACE class_body RBRACE .)
+    PHP_OPEN        reduce using rule 19 (class_definition -> CLASS ID LBRACE class_body RBRACE .)
+    PHP_CLOSE       reduce using rule 19 (class_definition -> CLASS ID LBRACE class_body RBRACE .)
+    WHILE           reduce using rule 19 (class_definition -> CLASS ID LBRACE class_body RBRACE .)
+    FUNCTION        reduce using rule 19 (class_definition -> CLASS ID LBRACE class_body RBRACE .)
+    $end            reduce using rule 19 (class_definition -> CLASS ID LBRACE class_body RBRACE .)
+    RBRACE          reduce using rule 19 (class_definition -> CLASS ID LBRACE class_body RBRACE .)
+
+
+state 99
+
+    (20) class_body -> class_body class_member .
+
+    RBRACE          reduce using rule 20 (class_body -> class_body class_member .)
+    PUBLIC          reduce using rule 20 (class_body -> class_body class_member .)
+    PRIVATE         reduce using rule 20 (class_body -> class_body class_member .)
+    PROTECTED       reduce using rule 20 (class_body -> class_body class_member .)
+    FUNCTION        reduce using rule 20 (class_body -> class_body class_member .)
+
+
+state 100
+
+    (23) class_member -> PUBLIC VARIABLE . SEMI
+
+    SEMI            shift and go to state 108
+
+
+state 101
+
+    (24) class_member -> PRIVATE VARIABLE . SEMI
+
+    SEMI            shift and go to state 109
+
+
+state 102
+
+    (25) class_member -> PROTECTED VARIABLE . SEMI
+
+    SEMI            shift and go to state 110
+
+
+state 103
+
+    (26) class_member -> FUNCTION ID . LPAREN RPAREN block
+
+    LPAREN          shift and go to state 111
+
+
+state 104
+
+    (27) while_statement -> WHILE LPAREN expression RPAREN block .
+
+    VARIABLE        reduce using rule 27 (while_statement -> WHILE LPAREN expression RPAREN block .)
+    ECHO            reduce using rule 27 (while_statement -> WHILE LPAREN expression RPAREN block .)
+    IF              reduce using rule 27 (while_statement -> WHILE LPAREN expression RPAREN block .)
+    CLASS           reduce using rule 27 (while_statement -> WHILE LPAREN expression RPAREN block .)
+    PHP_OPEN        reduce using rule 27 (while_statement -> WHILE LPAREN expression RPAREN block .)
+    PHP_CLOSE       reduce using rule 27 (while_statement -> WHILE LPAREN expression RPAREN block .)
+    WHILE           reduce using rule 27 (while_statement -> WHILE LPAREN expression RPAREN block .)
+    FUNCTION        reduce using rule 27 (while_statement -> WHILE LPAREN expression RPAREN block .)
+    $end            reduce using rule 27 (while_statement -> WHILE LPAREN expression RPAREN block .)
+    RBRACE          reduce using rule 27 (while_statement -> WHILE LPAREN expression RPAREN block .)
+
+
+state 105
+
+    (28) function_definition -> FUNCTION ID LPAREN RPAREN block .
+
+    VARIABLE        reduce using rule 28 (function_definition -> FUNCTION ID LPAREN RPAREN block .)
+    ECHO            reduce using rule 28 (function_definition -> FUNCTION ID LPAREN RPAREN block .)
+    IF              reduce using rule 28 (function_definition -> FUNCTION ID LPAREN RPAREN block .)
+    CLASS           reduce using rule 28 (function_definition -> FUNCTION ID LPAREN RPAREN block .)
+    PHP_OPEN        reduce using rule 28 (function_definition -> FUNCTION ID LPAREN RPAREN block .)
+    PHP_CLOSE       reduce using rule 28 (function_definition -> FUNCTION ID LPAREN RPAREN block .)
+    WHILE           reduce using rule 28 (function_definition -> FUNCTION ID LPAREN RPAREN block .)
+    FUNCTION        reduce using rule 28 (function_definition -> FUNCTION ID LPAREN RPAREN block .)
+    $end            reduce using rule 28 (function_definition -> FUNCTION ID LPAREN RPAREN block .)
+    RBRACE          reduce using rule 28 (function_definition -> FUNCTION ID LPAREN RPAREN block .)
+
+
+state 106
+
+    (17) if_statement -> IF LPAREN expression RPAREN block ELSE . block
+    (18) block -> . LBRACE statement_list RBRACE
+
+    LBRACE          shift and go to state 97
+
+    block                          shift and go to state 112
+
+state 107
+
+    (18) block -> LBRACE statement_list . RBRACE
+    (2) statement_list -> statement_list . statement
+    (4) statement -> . assignment
+    (5) statement -> . print_statement
+    (6) statement -> . if_statement
+    (7) statement -> . class_definition
+    (8) statement -> . php_open
+    (9) statement -> . php_close
+    (10) statement -> . while_statement
+    (11) statement -> . function_definition
+    (14) assignment -> . VARIABLE EQUALS expression SEMI
+    (15) print_statement -> . ECHO expression SEMI
+    (16) if_statement -> . IF LPAREN expression RPAREN block
+    (17) if_statement -> . IF LPAREN expression RPAREN block ELSE block
+    (19) class_definition -> . CLASS ID LBRACE class_body RBRACE
+    (12) php_open -> . PHP_OPEN
+    (13) php_close -> . PHP_CLOSE
+    (27) while_statement -> . WHILE LPAREN expression RPAREN block
+    (28) function_definition -> . FUNCTION ID LPAREN RPAREN block
+
+    RBRACE          shift and go to state 113
+    VARIABLE        shift and go to state 12
+    ECHO            shift and go to state 13
+    IF              shift and go to state 14
+    CLASS           shift and go to state 15
+    PHP_OPEN        shift and go to state 16
+    PHP_CLOSE       shift and go to state 17
+    WHILE           shift and go to state 18
+    FUNCTION        shift and go to state 19
+
+    statement                      shift and go to state 20
+    assignment                     shift and go to state 4
+    print_statement                shift and go to state 5
+    if_statement                   shift and go to state 6
+    class_definition               shift and go to state 7
+    php_open                       shift and go to state 8
+    php_close                      shift and go to state 9
+    while_statement                shift and go to state 10
+    function_definition            shift and go to state 11
+
+state 108
+
+    (23) class_member -> PUBLIC VARIABLE SEMI .
+
+    RBRACE          reduce using rule 23 (class_member -> PUBLIC VARIABLE SEMI .)
+    PUBLIC          reduce using rule 23 (class_member -> PUBLIC VARIABLE SEMI .)
+    PRIVATE         reduce using rule 23 (class_member -> PUBLIC VARIABLE SEMI .)
+    PROTECTED       reduce using rule 23 (class_member -> PUBLIC VARIABLE SEMI .)
+    FUNCTION        reduce using rule 23 (class_member -> PUBLIC VARIABLE SEMI .)
+
+
+state 109
+
+    (24) class_member -> PRIVATE VARIABLE SEMI .
+
+    RBRACE          reduce using rule 24 (class_member -> PRIVATE VARIABLE SEMI .)
+    PUBLIC          reduce using rule 24 (class_member -> PRIVATE VARIABLE SEMI .)
+    PRIVATE         reduce using rule 24 (class_member -> PRIVATE VARIABLE SEMI .)
+    PROTECTED       reduce using rule 24 (class_member -> PRIVATE VARIABLE SEMI .)
+    FUNCTION        reduce using rule 24 (class_member -> PRIVATE VARIABLE SEMI .)
+
+
+state 110
+
+    (25) class_member -> PROTECTED VARIABLE SEMI .
+
+    RBRACE          reduce using rule 25 (class_member -> PROTECTED VARIABLE SEMI .)
+    PUBLIC          reduce using rule 25 (class_member -> PROTECTED VARIABLE SEMI .)
+    PRIVATE         reduce using rule 25 (class_member -> PROTECTED VARIABLE SEMI .)
+    PROTECTED       reduce using rule 25 (class_member -> PROTECTED VARIABLE SEMI .)
+    FUNCTION        reduce using rule 25 (class_member -> PROTECTED VARIABLE SEMI .)
+
+
+state 111
+
+    (26) class_member -> FUNCTION ID LPAREN . RPAREN block
+
+    RPAREN          shift and go to state 114
+
+
+state 112
+
+    (17) if_statement -> IF LPAREN expression RPAREN block ELSE block .
+
+    VARIABLE        reduce using rule 17 (if_statement -> IF LPAREN expression RPAREN block ELSE block .)
+    ECHO            reduce using rule 17 (if_statement -> IF LPAREN expression RPAREN block ELSE block .)
+    IF              reduce using rule 17 (if_statement -> IF LPAREN expression RPAREN block ELSE block .)
+    CLASS           reduce using rule 17 (if_statement -> IF LPAREN expression RPAREN block ELSE block .)
+    PHP_OPEN        reduce using rule 17 (if_statement -> IF LPAREN expression RPAREN block ELSE block .)
+    PHP_CLOSE       reduce using rule 17 (if_statement -> IF LPAREN expression RPAREN block ELSE block .)
+    WHILE           reduce using rule 17 (if_statement -> IF LPAREN expression RPAREN block ELSE block .)
+    FUNCTION        reduce using rule 17 (if_statement -> IF LPAREN expression RPAREN block ELSE block .)
+    $end            reduce using rule 17 (if_statement -> IF LPAREN expression RPAREN block ELSE block .)
+    RBRACE          reduce using rule 17 (if_statement -> IF LPAREN expression RPAREN block ELSE block .)
+
+
+state 113
+
+    (18) block -> LBRACE statement_list RBRACE .
+
+    ELSE            reduce using rule 18 (block -> LBRACE statement_list RBRACE .)
+    VARIABLE        reduce using rule 18 (block -> LBRACE statement_list RBRACE .)
+    ECHO            reduce using rule 18 (block -> LBRACE statement_list RBRACE .)
+    IF              reduce using rule 18 (block -> LBRACE statement_list RBRACE .)
+    CLASS           reduce using rule 18 (block -> LBRACE statement_list RBRACE .)
+    PHP_OPEN        reduce using rule 18 (block -> LBRACE statement_list RBRACE .)
+    PHP_CLOSE       reduce using rule 18 (block -> LBRACE statement_list RBRACE .)
+    WHILE           reduce using rule 18 (block -> LBRACE statement_list RBRACE .)
+    FUNCTION        reduce using rule 18 (block -> LBRACE statement_list RBRACE .)
+    $end            reduce using rule 18 (block -> LBRACE statement_list RBRACE .)
+    RBRACE          reduce using rule 18 (block -> LBRACE statement_list RBRACE .)
+    PUBLIC          reduce using rule 18 (block -> LBRACE statement_list RBRACE .)
+    PRIVATE         reduce using rule 18 (block -> LBRACE statement_list RBRACE .)
+    PROTECTED       reduce using rule 18 (block -> LBRACE statement_list RBRACE .)
+
+
+state 114
+
+    (26) class_member -> FUNCTION ID LPAREN RPAREN . block
+    (18) block -> . LBRACE statement_list RBRACE
+
+    LBRACE          shift and go to state 97
+
+    block                          shift and go to state 115
+
+state 115
+
+    (26) class_member -> FUNCTION ID LPAREN RPAREN block .
+
+    RBRACE          reduce using rule 26 (class_member -> FUNCTION ID LPAREN RPAREN block .)
+    PUBLIC          reduce using rule 26 (class_member -> FUNCTION ID LPAREN RPAREN block .)
+    PRIVATE         reduce using rule 26 (class_member -> FUNCTION ID LPAREN RPAREN block .)
+    PROTECTED       reduce using rule 26 (class_member -> FUNCTION ID LPAREN RPAREN block .)
+    FUNCTION        reduce using rule 26 (class_member -> FUNCTION ID LPAREN RPAREN block .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for PUBLIC in state 64 resolved as shift
+WARNING: shift/reduce conflict for PRIVATE in state 64 resolved as shift
+WARNING: shift/reduce conflict for PROTECTED in state 64 resolved as shift
+WARNING: shift/reduce conflict for FUNCTION in state 64 resolved as shift

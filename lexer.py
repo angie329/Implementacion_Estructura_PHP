@@ -41,10 +41,15 @@ tokens = [
     'STRING', 
     'PLUS','MINUS','TIMES','DIVIDE','MODULO','POW',
     'EQUALS','PLUS_EQUALS','MINUS_EQUALS','CONCAT_EQUALS',
-    'EQ','NOT_EQ','LT','GT','LTE','GTE','AND','OR','NOT',
+    'EQ','NOT_EQ','LT','GT','LTE','GTE',
+    'AND','OR','NOT',
+    'LAND','LOR','LNOT',
     'INC','DEC',
     'ARROW','DOUBLE_COLON',
-    'LPAREN','RPAREN','LBRACE','RBRACE','LBRACKET','RBRACKET','COMA','SEMI',
+    'LPAREN','RPAREN',
+    'LBRACE','RBRACE',
+    'LBRACKET','RBRACKET',
+    'COMMA','SEMI',
     'QMARK','COLON'
     
 ] + list(reserved.values()) #usé list en vez de tuple porque se añadirán más tokens por los otros compañeros
@@ -113,9 +118,9 @@ t_LT = r'<'
 t_GT = r'>'
 t_LTE = r'<='
 t_GTE = r'>='
-t_AND = r'&&'
-t_OR = r'\|\|'
-t_NOT = r'!'
+t_LAND = r'&&'
+t_LOR = r'\|\|'
+t_LNOT = r'!'
 t_INC = r'\+\+'
 t_DEC = r'--'
 t_ARROW = r'->'
@@ -126,7 +131,7 @@ t_LBRACE = r'\{'
 t_RBRACE = r'\}'
 t_LBRACKET = r'\['
 t_RBRACKET = r'\]'
-t_COMA = r','
+t_COMMA = r','
 t_SEMI = r';'
 t_QMARK = r'\?'
 t_COLON = r':'

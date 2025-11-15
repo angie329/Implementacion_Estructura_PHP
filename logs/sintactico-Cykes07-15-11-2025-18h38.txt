@@ -1,0 +1,7 @@
+Analizador Sintáctico
+Usuario: Cykes07
+Fecha: 15-11-2025-18h38
+==================================================
+
+Error de sintaxis cerca de '$num1' en la línea 11
+Error de sintaxis cerca de 'return' en la línea 13
