@@ -1,0 +1,6 @@
+Analizador Sintáctico
+Usuario: bgzhangg
+Fecha: 15-11-2025-19h18
+==================================================
+
+No se encontraron errores sintácticos.

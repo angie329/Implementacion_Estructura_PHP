@@ -25,16 +25,21 @@ def p_statement_list(p):
         p[0] = [p[1]]
 
 def p_statement(p):
-    '''statement : assignment
+    '''statement : expression_statement
                 | print_statement
                 | if_statement
                 | class_definition
                 | php_open
                 | php_close
                 | while_statement
-                | function_definition'''
+                | function_definition
+                | for_statement
+                | return_statement'''
     p[0] = p[1]
 
+def p_expression_statement(p):
+    '''expression_statement : expression SEMI'''
+    p[0] = p[1]
 
 def p_php_open(p):
     '''php_open : PHP_OPEN'''
@@ -47,9 +52,9 @@ def p_php_close(p):
     # esto ignora a ?>
     p[0] = ("php_close",)
 
-# asignación
-def p_assignment(p):
-    '''assignment : VARIABLE EQUALS expression SEMI'''
+# expression
+def p_expression_assignment(p):
+    '''expression : VARIABLE EQUALS expression'''
     p[0] = ("asignacion", p[1], p[3])
 
 # print (echo)
@@ -93,7 +98,10 @@ def p_class_member(p):
     '''class_member : PUBLIC VARIABLE SEMI
                     | PRIVATE VARIABLE SEMI
                     | PROTECTED VARIABLE SEMI
-                    | FUNCTION ID LPAREN RPAREN block'''
+                    | PUBLIC FUNCTION ID LPAREN parameter_list RPAREN block
+                    | PRIVATE FUNCTION ID LPAREN parameter_list RPAREN block
+                    | PROTECTED FUNCTION ID LPAREN parameter_list RPAREN block
+                    | FUNCTION ID LPAREN parameter_list RPAREN block'''
     if p[1] in ("public", "private", "protected"):
         p[0] = ("propiedad", p[1], p[2])
     else:
@@ -108,9 +116,22 @@ def p_while_statement(p):
     '''while_statement : WHILE LPAREN expression RPAREN block'''
     p[0] = ('while', p[3], p[5])
 
+def p_parameter_list(p):
+    '''parameter_list : variable_list
+                      | empty'''
+    p[0] = p[1] if p[1] else []
+
+def p_variable_list(p):
+    '''variable_list : variable_list COMMA VARIABLE
+                     | VARIABLE'''
+    if len(p) == 4:
+        p[0] = p[1] + [p[3]]
+    else:
+        p[0] = [p[1]]
+
 def p_function_definition(p):
-    '''function_definition : FUNCTION ID LPAREN RPAREN block''' 
-    p[0] = ('function_def', p[2], p[5])
+    '''function_definition : FUNCTION ID LPAREN parameter_list RPAREN block'''
+    p[0] = ('function_def', p[2], p[4], p[6])
 
 precedence = (
     ('left', 'LOR'),
@@ -119,6 +140,7 @@ precedence = (
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE', 'MODULO'),
     ('right', 'POW'),
+    ('right', 'EQUALS'),
     ('right', 'UMINUS', 'LNOT'), 
     ('left', 'INC', 'DEC'),
 )
@@ -186,9 +208,40 @@ def p_expression_list(p):
     else:
         p[0] = [p[1]]
 # ============================================================
-# INTEGRANTE 3 - 
+# INTEGRANTE 3 - Bryan Zhang
 # ============================================================
 
+def p_optional_expression(p):
+    '''optional_expression : expression
+                           | empty'''
+    p[0] = p[1]
+
+def p_for_statement(p):
+    '''for_statement : FOR LPAREN optional_expression SEMI optional_expression SEMI optional_expression RPAREN block'''
+    p[0] = ('for', p[3], p[5], p[7], p[9])
+
+def p_return_statement(p):
+    '''return_statement : RETURN optional_expression SEMI'''
+    p[0] = ('return', p[2])
+
+def p_expression_new_object(p):
+    '''expression : NEW ID LPAREN array_elements RPAREN
+                  | NEW ID'''
+    if len(p) == 6:
+        p[0] = ('new_object', p[2], p[4])
+    else:
+        p[0] = ('new_object', p[2], [])
+
+def p_expression_function_call(p):
+    '''expression : ID LPAREN array_elements RPAREN'''
+    p[0] = ('function_call', p[1], p[3])
+
+def p_expression_array_access(p):
+    '''expression : VARIABLE LBRACKET expression RBRACKET'''
+    p[0] = ('array_access', p[1], p[3])
+
+# ============================================================
+# ============================================================
 
 # utilidades
 
@@ -247,4 +300,4 @@ def ejecutar_parser(archivo, usuario):
 
 #prueba 
 if __name__ == "__main__":
-    ejecutar_parser("algoritmo2.php", "Cykes07")
+    ejecutar_parser("algoritmo3.php", "bgzhangg")
