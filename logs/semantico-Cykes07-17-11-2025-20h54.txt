@@ -1,0 +1,6 @@
+Analizador Semántico
+Usuario: Cykes07
+Fecha: 17-11-2025-20h54
+--------------------------------------------------
+
+Error Semántico (Línea 0): la clase 'MiClase' ya está declarada.
