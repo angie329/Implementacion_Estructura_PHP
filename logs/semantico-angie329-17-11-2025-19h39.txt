@@ -1,0 +1,6 @@
+Analizador Semántico
+Usuario: angie329
+Fecha: 17-11-2025-19h39
+--------------------------------------------------
+
+Error semántico: la clase 'Persona' ya está declarada.

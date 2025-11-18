@@ -11,4 +11,10 @@ class Persona {
     }
 }
 
+class Persona {
+    public function hablar() {
+        echo "Mi nombre es \$nombre";
+    }
+}
+
 ?>
