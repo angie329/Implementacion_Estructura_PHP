@@ -35,14 +35,15 @@ def analizar_clase(nombre, linea=0):
         tabla_clases[nombre] = True
         print(f"Clase registrada: {nombre}")
 
-def analizar_funcion(nombre, linea=0):
-    # verifica si ya existe función
+
+def analizar_funcion(nombre, params_list, linea=0): #Modificado por integrante 3
     if nombre in tabla_funciones:
-        registrar_error(f"Error Semántico (Línea {linea}): la función '{nombre}' ya está declarada.")
+        registrar_error(f"Error Semántico: la función '{nombre}' ya está declarada.")
     else:
-        # Miembro 3 debería expandir esto para guardar parámetros
-        tabla_funciones[nombre] = {'params': 0} 
-        print(f"Función registrada: {nombre}")
+        cantidad_params = len(params_list) if params_list else 0
+        tabla_funciones[nombre] = {'params': cantidad_params}
+        print(f"Función registrada: {nombre} (Requiere {cantidad_params} argumentos)")
+
 
 # ============================================================
 # INTEGRANTE 2: Cykes07
@@ -95,15 +96,46 @@ def analizar_nodo(nodo, symbol_table):
         symbol_table.enter_scope()
         analizar_nodo(nodo[2], symbol_table) 
         symbol_table.exit_scope() 
-        return 
-
-    if tipo == "function_def":
-        analizar_funcion(nodo[1]) 
-        symbol_table.enter_scope() 
-        analizar_nodo(nodo[2], symbol_table) 
-        symbol_table.exit_scope() 
         return
 
+    if tipo == "function_def": #Modificado por integrante 3
+        nombre_func = nodo[1]
+        params_lista = nodo[2]
+        bloque_codigo = nodo[3]
+        analizar_funcion(nombre_func, params_lista)
+        symbol_table.enter_scope()
+        if params_lista:
+            for param in params_lista:
+                symbol_table.add_variable(param)
+
+        analizar_nodo(bloque_codigo, symbol_table)
+        symbol_table.exit_scope()
+        return
+    # ============================================================
+    # INTEGRANTE 3: Bryan Zhang
+    # ============================================================
+    if tipo == "function_call":
+        nombre_func = nodo[1]
+        argumentos_dados = nodo[2]
+
+        if nombre_func not in tabla_funciones:
+            registrar_error(f"Error Semántico: Llamada a función no definida '{nombre_func}()'.")
+        else:
+            params_esperados = tabla_funciones[nombre_func]['params']
+            params_recibidos = len(argumentos_dados) if argumentos_dados else 0
+
+            if params_esperados != params_recibidos:
+                registrar_error(
+                    f"Error Semántico: La función '{nombre_func}' espera {params_esperados} argumentos, "
+                    f"pero recibió {params_recibidos}."
+                )
+
+        if argumentos_dados:
+            for arg in argumentos_dados:
+                analizar_nodo(arg, symbol_table)
+        return
+    # ============================================================
+    # ============================================================
     if tipo == "asignacion":
         var_name = nodo[1]
         
@@ -168,8 +200,8 @@ if __name__ == "__main__":
 
     
 
-    archivo = "algoritmo_semantico.php"
-    usuario = "Cykes07" 
+    archivo = "algoritmo_semantico_2.php"
+    usuario = "bgzhangg"
 
     try:
         with open(archivo, "r", encoding="utf-8") as f:

@@ -1,0 +1,7 @@
+Analizador Semántico
+Usuario: bgzhangg
+Fecha: 17-11-2025-21h30
+--------------------------------------------------
+
+Error Semántico: La función 'sumar' espera 2 argumentos, pero recibió 1.
+Error Semántico: Llamada a función no definida 'restar()'.
