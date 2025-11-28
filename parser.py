@@ -207,6 +207,11 @@ def p_expression_list(p):
         p[0] = p[1] + [p[3]]
     else:
         p[0] = [p[1]]
+
+def p_expression_object_property(p):
+    '''expression : expression ARROW ID
+                  | expression ARROW VARIABLE''' 
+    p[0] = ('prop_access', p[1], p[3])
 # ============================================================
 # INTEGRANTE 3 - Bryan Zhang
 # ============================================================
